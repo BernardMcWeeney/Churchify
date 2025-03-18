@@ -1,0 +1,56 @@
+---
+// src/components/Header.astro
+---
+
+<header class="bg-white shadow-md fixed w-full top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/" class="text-2xl font-bold text-emerald-700 flex items-center">
+          <span class="mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+          </span>
+          Churchify.ie
+        </a>
+      </div>
+      
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8 text-black">
+          <li><a href="/" class="hover:text-emerald-700 transition-colors font-medium">Home</a></li>
+          <li><a href="/about" class="hover:text-emerald-700 transition-colors font-medium">About</a></li>
+          <li><a href="/services" class="hover:text-emerald-700 transition-colors font-medium">Services</a></li>
+          <li><a href="/portfolio" class="hover:text-emerald-700 transition-colors font-medium">Portfolio</a></li>
+          <li><a href="/contact" class="hover:text-emerald-700 transition-colors font-medium">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-black focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white w-full">
+      <ul class="pt-2 pb-4 px-4 space-y-2">
+        <li><a href="/" class="block py-2 hover:text-emerald-700 font-medium">Home</a></li>
+        <li><a href="/about" class="block py-2 hover:text-emerald-700 font-medium">About</a></li>
+        <li><a href="/services" class="block py-2 hover:text-emerald-700 font-medium">Services</a></li>
+        <li><a href="/portfolio" class="block py-2 hover:text-emerald-700 font-medium">Portfolio</a></li>
+        <li><a href="/contact" class="block py-2 hover:text-emerald-700 font-medium">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    menuToggle?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+  </script>
