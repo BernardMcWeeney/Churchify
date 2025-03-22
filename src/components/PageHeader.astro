@@ -1,0 +1,68 @@
+---
+// src/components/PageHeader.astro
+interface Props {
+  title: string;
+  tagline: string;
+}
+
+const { title, tagline } = Astro.props;
+---
+
+<!-- Page Header with Stained Glass Inspiration -->
+<section class="relative overflow-hidden py-40">
+  <!-- Stained Glass Background Effect -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-stained-gradient"></div>
+    
+    <!-- For desktop: 6 columns, 3 rows with grid-rows-3 ensures even height -->
+    <div class="absolute inset-0 hidden md:grid md:grid-cols-6 md:grid-rows-3">
+      <!-- Colored "glass" panels without hover animations - first row -->
+      <div class="stained-panel-red"></div>
+      <div class="stained-panel-bright-red"></div>
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      <div class="stained-panel-blue"></div>
+      
+      <!-- Second row -->
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      <div class="stained-panel-red"></div>
+      <div class="stained-panel-bright-red"></div>
+      <div class="stained-panel-forest"></div>
+      
+      <!-- Third row -->
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      <div class="stained-panel-red"></div>
+      <div class="stained-panel-bright-red"></div>
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-forest"></div>
+    </div>
+    
+    <!-- For mobile: 2 columns, 4 rows -->
+    <div class="absolute inset-0 grid grid-cols-2 grid-rows-4 md:hidden">
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-red"></div>
+      
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      
+      <div class="stained-panel-blue"></div>
+      <div class="stained-panel-bright-red"></div>
+      
+      <div class="stained-panel-forest"></div>
+      <div class="stained-panel-green"></div>
+    </div>
+    
+    <!-- Light ray effect without animation -->
+    <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/15"></div>
+  </div>
+  
+  <!-- Content - Centered Title and Tagline -->
+  <div class="container relative z-10 mx-auto px-4 text-center">
+    <h1 class="text-6xl md:text-7xl font-bold mb-8 text-white drop-shadow-lg">{title}</h1>
+    <p class="text-2xl max-w-3xl mx-auto leading-relaxed text-white drop-shadow-md">{tagline}</p>
+  </div>
+</section>

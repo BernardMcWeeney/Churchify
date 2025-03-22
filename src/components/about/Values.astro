@@ -1,0 +1,101 @@
+---
+// src/components/about/Values.astro
+---
+<!-- Our Values -->
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-12 text-center text-[color:var(--color-brand)]">Our Core Values</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Value 1 - Green Theme -->
+      <div class="bg-white p-8 rounded-lg shadow-md border-2 border-[color:var(--color-brand)] transition-all duration-300 hover:shadow-xl group">
+        <div class="w-16 h-16 rounded-full overflow-hidden relative mb-6 mx-auto transition-transform duration-300 group-hover:scale-110">
+          <!-- Stained Glass Background - Green Theme -->
+          <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#047857] via-[#04781D] to-[#045F78] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+            
+            <!-- Glass panels -->
+            <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 transition-all duration-500 group-hover:rotate-12">
+              <div class="bg-[#047857]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#047857]/40"></div>
+              <div class="bg-[#04781D]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/40"></div>
+              <div class="bg-[#045F78]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/40"></div>
+              <div class="bg-[#04781D]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/40"></div>
+            </div>
+            
+            <!-- Light ray effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/30"></div>
+          </div>
+          
+          <!-- Icon -->
+          <div class="relative z-10 h-full w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white transition-all duration-500 group-hover:drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-center text-[color:var(--color-brand)] transition-all duration-300 group-hover:text-[color:var(--color-accent)]">Community-Focused</h3>
+        <p class="text-gray-600 text-center">We understand that each parish is a unique community with its own needs and character. Our solutions are designed to strengthen those communities, not replace them.</p>
+      </div>
+      
+      <!-- Value 2 - Red Theme -->
+      <div class="bg-white p-8 rounded-lg shadow-md border-2 border-[color:var(--color-brand)] transition-all duration-300 hover:shadow-xl group">
+        <div class="w-16 h-16 rounded-full overflow-hidden relative mb-6 mx-auto transition-transform duration-300 group-hover:scale-110">
+          <!-- Stained Glass Background - Red Theme -->
+          <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#780425] via-[#EA1715] to-[#780425] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+            
+            <!-- Glass panels -->
+            <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 transition-all duration-500 group-hover:rotate-12">
+              <div class="bg-[#780425]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#780425]/40"></div>
+              <div class="bg-[#EA1715]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#EA1715]/40"></div>
+              <div class="bg-[#EA1715]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#EA1715]/40"></div>
+              <div class="bg-[#780425]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#780425]/40"></div>
+            </div>
+            
+            <!-- Light ray effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/30"></div>
+          </div>
+          
+          <!-- Icon -->
+          <div class="relative z-10 h-full w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white transition-all duration-500 group-hover:drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-center text-[color:var(--color-brand)] transition-all duration-300 group-hover:text-[color:var(--color-accent)]">Integrity & Trust</h3>
+        <p class="text-gray-600 text-center">We believe in transparent pricing, honest communication, and secure solutions. Your community's trust is our most valued asset.</p>
+      </div>
+      
+      <!-- Value 3 - Purple Theme -->
+      <div class="bg-white p-8 rounded-lg shadow-md border-2 border-[color:var(--color-brand)] transition-all duration-300 hover:shadow-xl group">
+        <div class="w-16 h-16 rounded-full overflow-hidden relative mb-6 mx-auto transition-transform duration-300 group-hover:scale-110">
+          <!-- Stained Glass Background - Purple Theme -->
+          <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#570478] via-[#1D0478] to-[#570478] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+            
+            <!-- Glass panels -->
+            <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 transition-all duration-500 group-hover:rotate-12">
+              <div class="bg-[#570478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/40"></div>
+              <div class="bg-[#1D0478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/40"></div>
+              <div class="bg-[#1D0478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/40"></div>
+              <div class="bg-[#570478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/40"></div>
+            </div>
+            
+            <!-- Light ray effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/30"></div>
+          </div>
+          
+          <!-- Icon -->
+          <div class="relative z-10 h-full w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white transition-all duration-500 group-hover:drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-center text-[color:var(--color-brand)] transition-all duration-300 group-hover:text-[color:var(--color-accent)]">Continuous Improvement</h3>
+        <p class="text-gray-600 text-center">The digital landscape is always evolving, and so are we. We continuously update our solutions to ensure your parish stays connected with the latest technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
