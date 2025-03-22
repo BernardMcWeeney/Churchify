@@ -1,0 +1,483 @@
+---
+// src/pages/services.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Our Services - Churchify.ie">
+  <Header />
+  
+  <!-- Page Header - Consistent with other pages -->
+  <section class="bg-gradient-to-r from-brand-700 to-brand-800 text-white py-24">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
+      <p class="text-xl max-w-2xl mx-auto leading-relaxed">Comprehensive digital solutions tailored for parishes across Ireland. Explore how we can help your community thrive in the digital age.</p>
+    </div>
+  </section>
+  
+  <!-- Services Introduction -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8 text-brand-700">Complete Parish Digital Solutions</h2>
+        <p class="text-gray-600 text-lg mb-8">At Churchify.ie, we understand that each parish has unique needs. Our services are designed to be flexible, affordable, and easy to implement, helping you connect with your community both online and offline.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Service Cards with ID anchors for direct linking -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <!-- Service 1: Websites -->
+      <div id="websites" class="flex flex-col lg:flex-row items-stretch mb-32 bg-white rounded-xl shadow-lg overflow-hidden border-2 border-brand-700">
+        <div class="lg:w-1/3 bg-brand-100 p-8 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </div>
+        <div class="lg:w-2/3 p-10">
+          <h3 class="text-2xl font-bold mb-6 text-brand-700">Parish Websites</h3>
+          <p class="text-gray-600 mb-8">A beautiful, mobile-responsive website tailored specifically for your parish. Our websites are designed to be easily updated by parish staff, with no technical knowledge required.</p>
+          
+          <h4 class="text-lg font-semibold mb-4 text-brand-700">Features include:</h4>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Mass and confession schedules</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Parish announcements</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Event calendar</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Priest profiles</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Photo galleries</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Contact information</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Integration with donations</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Newsletter signup</span>
+            </li>
+          </ul>
+          
+          <div class="flex gap-6">
+            <a href="/services/websites" class="bg-brand-700 text-white px-8 py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1">Learn More</a>
+            <a href="/portfolio#websites" class="border-2 border-brand-700 text-brand-700 px-8 py-4 rounded-lg font-medium hover:bg-brand-700 hover:text-white transition-colors inline-block">View Examples</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service 2: Donations -->
+      <div id="donations" class="flex flex-col lg:flex-row-reverse items-stretch mb-32 bg-white rounded-xl shadow-lg overflow-hidden border-2 border-brand-700">
+        <div class="lg:w-1/3 bg-brand-100 p-8 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <div class="lg:w-2/3 p-10">
+          <h3 class="text-2xl font-bold mb-6 text-brand-700">Online Donations</h3>
+          <p class="text-gray-600 mb-8">Make it easy for your parishioners to support your parish financially with our secure, easy-to-use online donation system. Accept one-time or recurring donations, track giving, and streamline your financial management.</p>
+          
+          <h4 class="text-lg font-semibold mb-4 text-brand-700">Features include:</h4>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Secure payment processing</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>One-time and recurring options</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Multiple fund designations</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Tax receipt generation</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Donation reporting</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Donor management</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Low transaction fees</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Website integration</span>
+            </li>
+          </ul>
+          
+          <div class="flex gap-6">
+            <a href="/services/donations" class="bg-brand-700 text-white px-8 py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1">Learn More</a>
+            <a href="/portfolio#donations" class="border-2 border-brand-700 text-brand-700 px-8 py-4 rounded-lg font-medium hover:bg-brand-700 hover:text-white transition-colors inline-block">View Examples</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service 3: Live Streaming -->
+      <div id="streaming" class="flex flex-col lg:flex-row items-stretch mb-32 bg-white rounded-xl shadow-lg overflow-hidden border-2 border-brand-700">
+        <div class="lg:w-1/3 bg-brand-100 p-8 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div class="lg:w-2/3 p-10">
+          <h3 class="text-2xl font-bold mb-6 text-brand-700">Live Streaming</h3>
+          <p class="text-gray-600 mb-8">Bring your services to those who cannot attend in person with high-quality live streaming. Our solutions are easy to use, reliable, and integrate seamlessly with your parish website.</p>
+          
+          <h4 class="text-lg font-semibold mb-4 text-brand-700">Features include:</h4>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>HD video quality</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Clear audio setup</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Multiple camera options</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Easy one-button operation</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Automatic recording</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Archive of past services</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>YouTube/Facebook integration</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Equipment maintenance</span>
+            </li>
+          </ul>
+          
+          <div class="flex gap-6">
+            <a href="/services/streaming" class="bg-brand-700 text-white px-8 py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1">Learn More</a>
+            <a href="/portfolio#streaming" class="border-2 border-brand-700 text-brand-700 px-8 py-4 rounded-lg font-medium hover:bg-brand-700 hover:text-white transition-colors inline-block">View Examples</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service 4: Complete Parish Solution -->
+      <div id="complete" class="flex flex-col lg:flex-row-reverse items-stretch mb-20 bg-white rounded-xl shadow-lg overflow-hidden border-2 border-brand-700">
+        <div class="lg:w-1/3 bg-brand-100 p-8 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <div class="lg:w-2/3 p-10">
+          <h3 class="text-2xl font-bold mb-6 text-brand-700">Complete Parish Solution</h3>
+          <p class="text-gray-600 mb-8">Our comprehensive "Parish in a Box" solution combines all of our services into one integrated package. Get everything your parish needs to thrive in the digital age at a discounted rate.</p>
+          
+          <h4 class="text-lg font-semibold mb-4 text-brand-700">Includes:</h4>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Custom parish website</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Online donation platform</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Live streaming setup</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Email newsletter system</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Staff training</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Ongoing technical support</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Quarterly website updates</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Monthly usage reports</span>
+            </li>
+          </ul>
+          
+          <div class="flex gap-6">
+            <a href="/services/complete" class="bg-brand-700 text-white px-8 py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1">Learn More</a>
+            <a href="/portfolio#complete" class="border-2 border-brand-700 text-brand-700 px-8 py-4 rounded-lg font-medium hover:bg-brand-700 hover:text-white transition-colors inline-block">View Examples</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section class="py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl font-bold mb-6 text-brand-700">Affordable Pricing for Parishes</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">Our services are designed to fit parish budgets of all sizes. We offer flexible payment options and discounts for bundled services.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Pricing Card 1: Starter -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-brand-700 transition-transform hover:scale-105">
+          <div class="bg-brand-700 py-6 text-center">
+            <h3 class="text-xl font-bold text-white">Starter Package</h3>
+          </div>
+          <div class="p-8">
+            <div class="text-center mb-8">
+              <span class="text-4xl font-bold text-brand-700">€495</span>
+              <span class="text-gray-600"> / once-off</span>
+              <p class="text-gray-600 mt-3">+ €45/month maintenance</p>
+            </div>
+            
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Basic parish website</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Mobile responsive design</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Mass schedule</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Email support</span>
+              </li>
+            </ul>
+            
+            <a href="/contact" class="block w-full bg-brand-700 text-white text-center py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors shadow-md hover:shadow-lg">Get Started</a>
+          </div>
+        </div>
+        
+        <!-- Pricing Card 2: Standard -->
+        <div class="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-brand-700 transition-transform hover:scale-105 transform scale-105 -translate-y-4">
+          <div class="absolute top-0 right-0 bg-brand-600 text-white px-3 py-1 rounded-bl-lg text-sm font-medium">Most Popular</div>
+          <div class="bg-brand-700 py-6 text-center">
+            <h3 class="text-xl font-bold text-white">Standard Package</h3>
+          </div>
+          <div class="p-8">
+            <div class="text-center mb-8">
+              <span class="text-4xl font-bold text-brand-700">€895</span>
+              <span class="text-gray-600"> / once-off</span>
+              <p class="text-gray-600 mt-3">+ €65/month maintenance</p>
+            </div>
+            
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Custom parish website</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Online donation system</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Event calendar</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Staff training</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Phone & email support</span>
+              </li>
+            </ul>
+            
+            <a href="/contact" class="block w-full bg-brand-700 text-white text-center py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors shadow-md hover:shadow-lg">Get Started</a>
+          </div>
+        </div>
+        
+        <!-- Pricing Card 3: Complete -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-brand-700 transition-transform hover:scale-105">
+          <div class="bg-brand-700 py-6 text-center">
+            <h3 class="text-xl font-bold text-white">Complete Package</h3>
+          </div>
+          <div class="p-8">
+            <div class="text-center mb-8">
+              <span class="text-4xl font-bold text-brand-700">€1,495</span>
+              <span class="text-gray-600"> / once-off</span>
+              <p class="text-gray-600 mt-3">+ €95/month maintenance</p>
+            </div>
+            
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Full parish digital solution</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Live streaming setup</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Newsletter system</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Quarterly website updates</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-700 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Priority support</span>
+              </li>
+            </ul>
+            
+            <a href="/contact" class="block w-full bg-brand-700 text-white text-center py-4 rounded-lg font-medium hover:bg-brand-800 transition-colors shadow-md hover:shadow-lg">Get Started</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12 text-gray-600">
+        <p class="text-lg">All packages include domain name registration, hosting, SSL certificate, and ongoing maintenance.</p>
+        <p class="mt-4 text-lg">Need a custom solution? <a href="/contact" class="text-brand-700 hover:underline font-medium">Contact us</a> for a personalized quote.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-24 bg-brand-700 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Transform Your Parish's Digital Presence?</h2>
+      <p class="text-xl mb-10 max-w-3xl mx-auto">Join dozens of parishes across Ireland who have embraced digital solutions with Churchify.ie</p>
+      <a href="/contact" class="bg-white text-brand-700 px-10 py-5 rounded-lg font-bold hover:bg-gray-100 transition-colors inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1 text-lg">Get Started Today</a>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
