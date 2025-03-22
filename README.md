@@ -1,48 +1,71 @@
-# Astro Starter Kit: Basics
+# Churchify
 
-```sh
-npm create astro@latest -- --template basics
+**Empower Your Parish with Modern Digital Solutions**  
+Affordable websites, online donations, live streaming, and more. Everything your parish needs to thrive in the digital age.
+
+---
+
+## 🧰 Parish in a Box
+
+A complete digital solution for your parish. Get everything you need to bring your parish online in one comprehensive package.
+
+---
+
+### ✨ Tech Stack
+
+- [Astro v5.5](https://docs.astro.build)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Churchify.ie](https://Churchify.ie) 
+- Designed with ❤️ by [Greenberry](https://greenberry.ie)  
+- Website by Bernard McWeeney
+
+---
+
+### 🚀 Getting Started
+
+```bash
+git clone https://github.com/YOUR-USERNAME/churchify.git
+cd churchify
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+This starts your local dev server at `http://localhost:4321`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### 📁 Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```txt
 /
-├── public/
-│   └── favicon.svg
+├── public/           # Static assets
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/   # Reusable UI components
+│   ├── layouts/      # Layout templates
+│   └── pages/        # Website pages (e.g. index.astro)
+├── tailwind.config.js
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+### 🛠 Available Scripts
 
-All commands are run from the root of the project, from a terminal:
+| Command            | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| `npm run dev`      | Start local dev server                           |
+| `npm run build`    | Build the production site                        |
+| `npm run preview`  | Preview the production build                     |
+| `npm run astro`    | Run Astro CLI commands                           |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+### 📚 Learn More
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro Docs](https://docs.astro.build)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Join Astro Discord](https://astro.build/chat)
+
+---
+
+Website designed with Greenberry by Bernard McWeeney

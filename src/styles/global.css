@@ -17,4 +17,82 @@
   --color-brand-800: oklch(0.37 0.09 169.28);
   --color-brand-900: oklch(0.30 0.07 168.76);
   --color-brand-950: oklch(0.20 0.06 168.45);
+
+  /* Stained Glass Colors */
+  --color-stained-green: #047857;
+  --color-stained-deep-red: #780425;
+  --color-stained-forest: #04781D;
+  --color-stained-teal: #045F78;
+  --color-stained-purple: #570478;
+  --color-stained-blue: #1D0478;
+  --color-stained-bright-red: #EA1715;
+  
+  /* Converting stained glass hex colors to OKLCH for better gradients */
+  --color-stained-green-oklch: oklch(0.45 0.11 170.02);
+  --color-stained-deep-red-oklch: oklch(0.32 0.15 23.18);
+  --color-stained-forest-oklch: oklch(0.45 0.11 142.02);
+  --color-stained-teal-oklch: oklch(0.41 0.07 212.31);
+  --color-stained-purple-oklch: oklch(0.31 0.17 306.45);
+  --color-stained-blue-oklch: oklch(0.23 0.16 264.28);
+  --color-stained-bright-red-oklch: oklch(0.53 0.23 27.16);
+
+  /* Brand fonts */
+  --font-heading: 'Cinzel', serif;
+  --font-body: system-ui, sans-serif;
+}
+
+/* Custom utility classes for stained glass effects */
+@layer utilities {
+  .bg-stained-gradient {
+    background: linear-gradient(to bottom right, 
+      var(--color-stained-green), 
+      var(--color-stained-teal), 
+      var(--color-stained-blue));
+    opacity: 0.9;
+  }
+  
+  /* Stained glass panel utilities */
+  .stained-panel-red {
+    background-color: color-mix(in oklch, var(--color-stained-deep-red) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stained-panel-bright-red {
+    background-color: color-mix(in oklch, var(--color-stained-bright-red) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stained-panel-green {
+    background-color: color-mix(in oklch, var(--color-stained-green) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stained-panel-forest {
+    background-color: color-mix(in oklch, var(--color-stained-forest) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stained-panel-teal {
+    background-color: color-mix(in oklch, var(--color-stained-teal) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stained-panel-purple {
+    background-color: color-mix(in oklch, var(--color-stained-purple) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stained-panel-blue {
+    background-color: color-mix(in oklch, var(--color-stained-blue) 30%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Base typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+  
+body {
+  font-family: var(--font-body);
 }

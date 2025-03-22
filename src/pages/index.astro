@@ -2,30 +2,14 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Digital Solutions for Parishes - Churchify.ie">
   <Header />
   
-  <!-- Hero Section - Kept larger for homepage -->
-  <section class="bg-gradient-to-r from-brand-700 to-brand-800 text-white py-24">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">Empower Your Parish with Modern Digital Solutions</h1>
-          <p class="text-xl mb-8 leading-relaxed">Affordable websites, online donations, live streaming, and more. Everything your parish needs to thrive in the digital age.</p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/services" class="bg-white text-brand-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-center shadow-md hover:shadow-lg transform hover:-translate-y-1">Our Services</a>
-            <a href="/contact" class="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-brand-700 transition-colors text-center shadow-md hover:shadow-lg transform hover:-translate-y-1">Get in Touch</a>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-          <img src="logo.png" alt="Digital Church Solutions" class="w-full max-w-md">
-        </div>
-      </div>
-    </div>
-  </section>
+  <Hero />
   
   <!-- Services Overview -->
   <section class="py-16">

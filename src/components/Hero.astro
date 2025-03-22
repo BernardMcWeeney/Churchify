@@ -1,0 +1,80 @@
+---
+// src/components/Hero.astro
+---
+<!-- Hero Section with Stained Glass Inspiration -->
+<section class="relative overflow-hidden py-24">
+  <!-- Stained Glass Background Effect -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-stained-gradient"></div>
+    
+    <!-- For desktop: 6 columns, 3 rows -->
+    <div class="absolute inset-0 hidden md:grid md:grid-cols-6 md:grid-rows-3">
+      <!-- Colored "glass" panels with varying opacity -->
+      <div class="stained-panel-red"></div>
+      <div class="stained-panel-bright-red"></div>
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      <div class="stained-panel-blue"></div>
+      
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      <div class="stained-panel-red"></div>
+      <div class="stained-panel-bright-red"></div>
+      <div class="stained-panel-forest"></div>
+      
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      <div class="stained-panel-red"></div>
+      <div class="stained-panel-bright-red"></div>
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-forest"></div>
+    </div>
+    
+    <!-- For mobile: 2 columns, 4 rows to create larger rectangles -->
+    <div class="absolute inset-0 grid grid-cols-2 grid-rows-4 md:hidden">
+      <div class="stained-panel-green"></div>
+      <div class="stained-panel-red"></div>
+      
+      <div class="stained-panel-teal"></div>
+      <div class="stained-panel-purple"></div>
+      
+      <div class="stained-panel-blue"></div>
+      <div class="stained-panel-bright-red"></div>
+      
+      <div class="stained-panel-forest"></div>
+      <div class="stained-panel-green"></div>
+    </div>
+    
+    <!-- Light ray effect -->
+    <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10"></div>
+  </div>
+  
+  <!-- Content -->
+  <div class="container relative z-10 mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-md">Empower Your Parish with Modern Digital Solutions</h1>
+        <p class="text-xl mb-8 leading-relaxed text-white/90">Affordable websites, online donations, live streaming, and more. Everything your parish needs to thrive in the digital age.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <!-- Improved button with subtle hover effect -->
+          <a href="/services" class="bg-white text-[color:var(--color-brand)] px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 ease-in-out border-2 border-white hover:bg-opacity-90 hover:shadow-lg text-center">
+            Our Services
+          </a>
+          <!-- Outline button with brand color -->
+          <a href="/contact" class="bg-[color:var(--color-brand)] border-2 border-[color:var(--color-brand)] px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 ease-in-out text-white hover:bg-opacity-90 hover:shadow-lg text-center">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <!-- Logo frame with theme variables -->
+        <div class="relative p-2 rounded-lg">
+          <div class="absolute inset-0 rounded-lg backdrop-blur-sm border border-white/20 bg-gradient-to-r from-[color:var(--color-stained-bright-red)]/20 via-[color:var(--color-stained-green)]/20 to-[color:var(--color-stained-teal)]/20"></div>
+          <img src="logo.png" alt="Digital Church Solutions" class="relative w-full max-w-md">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
