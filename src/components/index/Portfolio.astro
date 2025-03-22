@@ -1,0 +1,134 @@
+---
+// src/components/index/Portfolio.astro
+---
+<section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 text-brand-700">Our Recent Projects</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">See how we've helped parishes across Ireland embrace digital transformation.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Portfolio Item 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-brand-700 transition-all duration-300 hover:shadow-xl group">
+        <div class="relative overflow-hidden">
+          <img src="cat1-st-fin-barre-cork.webp" alt="St. Mary's Parish Website" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+          
+          <!-- Stained Glass Overlay - Green Theme -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none">
+            <!-- Base gradient background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#047857] via-[#04781D] to-[#045F78] opacity-50"></div>
+            
+            <!-- Glass panels -->
+            <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 transition-all duration-500 group-hover:rotate-3">
+              <div class="bg-[#047857]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#047857]/30"></div>
+              <div class="bg-[#04781D]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/30"></div>
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+              <div class="bg-[#04781D]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/30"></div>
+              <div class="bg-[#047857]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#047857]/30"></div>
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+              <div class="bg-[#04781D]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/30"></div>
+              <div class="bg-[#047857]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#047857]/30"></div>
+            </div>
+            
+            <!-- Light ray effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-brand-700">St. Mary's Parish</h3>
+          <p class="text-gray-600 mb-4">Complete digital parish solution with website, online donations, and live streaming.</p>
+          <a href="/portfolio/st-marys" class="text-brand-700 font-medium hover:text-brand-600 inline-flex items-center group-hover:underline">
+            View Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Portfolio Item 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-brand-700 transition-all duration-300 hover:shadow-xl group">
+        <div class="relative overflow-hidden">
+          <img src="st-patricks-cathedral.webp" alt="St. Patrick's Cathedral" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+          
+          <!-- Stained Glass Overlay - Blue Theme -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none">
+            <!-- Base gradient background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#045F78] via-[#1D0478] to-[#045F78] opacity-50"></div>
+            
+            <!-- Glass panels -->
+            <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 transition-all duration-500 group-hover:rotate-3">
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+              <div class="bg-[#045F78]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/30"></div>
+            </div>
+            
+            <!-- Light ray effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-brand-700">St. Patrick's Cathedral</h3>
+          <p class="text-gray-600 mb-4">High-quality live streaming setup for one of Ireland's most historic cathedrals.</p>
+          <a href="/portfolio/st-patricks" class="text-brand-700 font-medium hover:text-brand-600 inline-flex items-center group-hover:underline">
+            View Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Portfolio Item 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-brand-700 transition-all duration-300 hover:shadow-xl group">
+        <div class="relative overflow-hidden">
+          <img src="cat2-christ-church-cathedral.webp" alt="Holy Trinity Parish" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+          
+          <!-- Stained Glass Overlay - Purple Theme -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none">
+            <!-- Base gradient background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#570478] via-[#1D0478] to-[#570478] opacity-50"></div>
+            
+            <!-- Glass panels -->
+            <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 transition-all duration-500 group-hover:rotate-3">
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+              <div class="bg-[#1D0478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/30"></div>
+              <div class="bg-[#570478]/20 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/30"></div>
+            </div>
+            
+            <!-- Light ray effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-brand-700">Holy Trinity Parish</h3>
+          <p class="text-gray-600 mb-4">Custom donation platform integrated with parish management system.</p>
+          <a href="/portfolio/holy-trinity" class="text-brand-700 font-medium hover:text-brand-600 inline-flex items-center group-hover:underline">
+            View Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="/portfolio" class="bg-brand-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-800 transition-all duration-300 inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1">View All Projects</a>
+    </div>
+  </div>
+</section>

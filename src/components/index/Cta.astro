@@ -1,0 +1,23 @@
+---
+// src/components/index/Cta.astro
+---
+  <!-- CTA Section -->
+  <section class="py-20 bg-brand-700 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Empower Your Parish?</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">Join dozens of parishes across Ireland who have transformed their digital presence with Churchify.ie</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <!-- Improved button with subtle hover effect -->
+          <a href="/services" class="bg-white text-[color:var(--color-brand)] px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 ease-in-out border-2 border-white hover:bg-opacity-90 hover:shadow-lg hover:scale-105 hover:-translate-y-1 text-center relative overflow-hidden group">
+            <span class="relative z-10">Our Services</span>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-gradient-to-r from-[color:var(--color-stained-green)] to-[color:var(--color-stained-teal)]"></div>
+          </a>
+          <!-- Outline button with brand color -->
+          <a href="/contact" class="bg-[color:var(--color-brand)] border-2 border-[color:var(--color-brand)] px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 ease-in-out text-white hover:bg-opacity-90 hover:shadow-lg hover:scale-105 hover:-translate-y-1 text-center relative overflow-hidden group">
+            <span class="relative z-10">Get in Touch</span>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-gradient-to-r from-[color:var(--color-stained-bright-red)] to-[color:var(--color-stained-purple)]"></div>
+          </a>
+        </div>
+    </div>
+  </section>
