@@ -1,0 +1,141 @@
+---
+// src/pages/parishes.astro — Portfolio / Parishes We've Helped
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Layout title="Parishes We've Helped — Churchify">
+  <Header />
+
+  <PageHeader
+    title="Parishes We've Helped"
+    tagline="See how Churchify has helped parishes across Ireland build a modern online presence."
+  />
+
+  <!-- Portfolio Grid -->
+  <section class="py-24 bg-warm-50">
+    <div class="container mx-auto px-4">
+
+      <!-- Section label -->
+      <div class="text-center mb-16">
+        <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">Our Portfolio</p>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-900 mb-4">Trusted by Parishes Nationwide</h2>
+        <p class="text-brand-800/60 max-w-2xl mx-auto leading-relaxed">Every parish is unique. We craft websites that honour tradition while embracing the digital age.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <!-- Parish 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-warm-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden">
+            <img src="/cat1-st-fin-barre-cork.webp" alt="St. Mary's Parish" class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-brand-900/10 to-transparent"></div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-heading text-xl font-bold mb-1.5 text-brand-900">St. Mary's Parish</h3>
+            <p class="text-sm text-brand-800/40 mb-3 font-medium">Dublin</p>
+            <p class="text-brand-800/60 mb-5 leading-relaxed">Complete parish website with daily liturgical content, Mass times management, online donations, and livestream integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Donations</span>
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Livestream</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parish 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-warm-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden">
+            <img src="/st-patricks-cathedral.webp" alt="St. Patrick's Cathedral" class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-brand-900/10 to-transparent"></div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-heading text-xl font-bold mb-1.5 text-brand-900">St. Patrick's Cathedral</h3>
+            <p class="text-sm text-brand-800/40 mb-3 font-medium">Dublin</p>
+            <p class="text-brand-800/60 mb-5 leading-relaxed">Modern parish website for one of Ireland's most historic cathedrals, with emphasis on heritage content and visitor information.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Parish History</span>
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Calendar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parish 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-warm-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden">
+            <img src="/cat2-christ-church-cathedral.webp" alt="Holy Trinity Parish" class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-brand-900/10 to-transparent"></div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-heading text-xl font-bold mb-1.5 text-brand-900">Holy Trinity Parish</h3>
+            <p class="text-sm text-brand-800/40 mb-3 font-medium">Galway</p>
+            <p class="text-brand-800/60 mb-5 leading-relaxed">Parish website with integrated donation platform, weekly bulletin uploads, and comprehensive sacrament information pages.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Donations</span>
+              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Bulletin</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- More parishes coming -->
+      <div class="text-center mt-20">
+        <p class="text-brand-800/40 mb-8 text-lg">More parishes joining Churchify every month.</p>
+        <a href="/contact" class="bg-brand-800 text-white px-10 py-4 rounded-xl font-semibold hover:bg-brand-700 transition-all duration-300 shadow-lg shadow-brand-900/15 hover:shadow-xl hover:shadow-brand-900/20 inline-block">
+          Get Your Parish Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Strip -->
+  <section class="py-20 bg-warm-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-500 mb-8 font-medium">What Parishes Say</p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-300 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
+        <p class="font-heading text-xl md:text-2xl text-brand-900 leading-relaxed mb-8 italic">"Churchify understood exactly what our parish needed. The website is beautiful, the daily content keeps people coming back, and we never have to worry about the technical side. Best decision we've made."</p>
+        <div>
+          <p class="font-heading font-bold text-brand-900">Fr. Michael O'Connor</p>
+          <p class="text-sm text-brand-800/40 mt-1">St. Mary's Parish, Dublin</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-800 via-brand-900 to-brand-950"></div>
+      <div class="absolute inset-0 hidden md:grid md:grid-cols-4 md:grid-rows-2">
+        <div class="stained-panel-red opacity-25"></div>
+        <div class="stained-panel-gold opacity-25"></div>
+        <div class="stained-panel-red opacity-25"></div>
+        <div class="stained-panel-gold opacity-25"></div>
+        <div class="stained-panel-gold opacity-25"></div>
+        <div class="stained-panel-red opacity-25"></div>
+        <div class="stained-panel-gold opacity-25"></div>
+        <div class="stained-panel-red opacity-25"></div>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/5"></div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <p class="text-xs uppercase tracking-widest text-brand-200/70 mb-4 font-medium">Join Us</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-white">Your Parish Could Be Next</h2>
+      <p class="text-xl mb-12 max-w-2xl mx-auto text-white/80 leading-relaxed">Join parishes across Ireland with a modern, professional website powered by Churchify.</p>
+      <a href="/contact" class="bg-white text-brand-800 px-10 py-4 rounded-xl font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 inline-block">
+        Get Started Today
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

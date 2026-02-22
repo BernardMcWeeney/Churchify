@@ -1,94 +1,83 @@
 ---
-// src/components/index/ParishInABox.astro
+// src/components/index/ParishInABox.astro — Pricing Section
 ---
-<!-- Complete Digital Parish Solutions / Online Parish -->
-<section class="py-16">
+
+<section class="py-20 md:py-28 bg-warm-100">
   <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-lg overflow-hidden border-2 border-[color:var(--color-brand)] group">
-      <div class="md:w-1/2 p-8 md:p-12">
-        <h2 class="text-3xl font-bold mb-4 text-[color:var(--color-brand)] transition-colors duration-300 group-hover:text-[color:var(--color-accent-2)]">
-          Complete Digital Parish Solutions
-        </h2>
-        <p class="text-gray-600 mb-6">
-          A complete digital solution for your parish. Get everything you need to bring your parish online in one comprehensive package.
-        </p>
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-start group/item">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[color:var(--color-brand)] mr-2 mt-0.5 transition-transform duration-300 group-hover/item:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Professional website with weekly mass schedule</span>
-          </li>
-          <li class="flex items-start group/item">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[color:var(--color-brand)] mr-2 mt-0.5 transition-transform duration-300 group-hover/item:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Online donation platform with secure payment processing</span>
-          </li>
-          <li class="flex items-start group/item">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[color:var(--color-brand)] mr-2 mt-0.5 transition-transform duration-300 group-hover/item:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Live streaming setup for masses and events</span>
-          </li>
-          <li class="flex items-start group/item">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[color:var(--color-brand)] mr-2 mt-0.5 transition-transform duration-300 group-hover/item:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Parish communication tools (newsletter, email updates)</span>
-          </li>
-          <li class="flex items-start group/item">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[color:var(--color-brand)] mr-2 mt-0.5 transition-transform duration-300 group-hover/item:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Technical support and training for parish staff</span>
-          </li>
-        </ul>
-        <a href="/services" class="bg-[color:var(--color-brand)] text-white px-6 py-3 rounded-lg font-medium hover:bg-[color:var(--color-accent-2)] transition-all duration-300 inline-flex items-center shadow-md hover:shadow-lg">
-          <span>Explore Our Solutions</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-      
-      <div class="md:w-1/2 relative overflow-hidden" style="min-height: 400px;">
-        <!-- Stained Glass Background -->
-        <div class="absolute inset-0 z-0 transition-transform duration-500 group-hover:scale-105">
-          <!-- Base gradient background -->
-          <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-stained-deep-red)] via-[color:var(--color-stained-purple)] to-[color:var(--color-stained-blue)] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
-          
-          <!-- Stained glass panels - 3x4 grid -->
-          <div class="absolute inset-0 grid grid-cols-3 grid-rows-4 transition-all duration-500 group-hover:rotate-1">
-            <div class="bg-[color:var(--color-stained-green)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-green)]/40"></div>
-            <div class="bg-[color:var(--color-stained-deep-red)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-deep-red)]/40"></div>
-            <div class="bg-[color:var(--color-stained-forest)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-forest)]/40"></div>
-            
-            <div class="bg-[color:var(--color-stained-teal)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-teal)]/40"></div>
-            <div class="bg-[color:var(--color-stained-purple)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-purple)]/40"></div>
-            <div class="bg-[color:var(--color-stained-blue)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-blue)]/40"></div>
-            
-            <div class="bg-[color:var(--color-stained-bright-red)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-bright-red)]/40"></div>
-            <div class="bg-[color:var(--color-stained-green)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-green)]/40"></div>
-            <div class="bg-[color:var(--color-stained-deep-red)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-deep-red)]/40"></div>
-            
-            <div class="bg-[color:var(--color-stained-blue)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-blue)]/40"></div>
-            <div class="bg-[color:var(--color-stained-forest)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-forest)]/40"></div>
-            <div class="bg-[color:var(--color-stained-teal)]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[color:var(--color-stained-teal)]/40"></div>
-          </div>
-          
-          <!-- Light ray effect -->
-          <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
+    <div class="text-center mb-12">
+      <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">Pricing</p>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Simple, Transparent Pricing</h2>
+      <p class="text-brand-800/60 max-w-2xl mx-auto text-lg leading-relaxed">No hidden fees. No surprises. Everything your parish needs in one package.</p>
+    </div>
+
+    <div class="max-w-md mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-warm-200">
+        <!-- Header -->
+        <div class="bg-gradient-to-br from-brand-800 to-brand-900 text-white px-8 py-8 text-center">
+          <h3 class="text-lg font-heading font-bold mb-1 text-white/95">Complete Parish Website</h3>
+          <p class="text-brand-200/60 text-sm">Everything included. Nothing extra.</p>
         </div>
-        
-        <!-- Semi-transparent overlay to ensure image visibility -->
-        <div class="absolute inset-0 bg-black/20 z-10"></div>
-        
-        <!-- Image centered in a frame -->
-        <div class="absolute inset-0 flex items-center justify-center z-20 p-6">
-          <div class="relative w-5/6 h-5/6 rounded-lg overflow-hidden border-2 border-white/30 shadow-lg transition-all duration-500 group-hover:shadow-xl">
-            <img src="parish-digital.jpg" alt="Parish Digital Solutions" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+        <!-- Pricing -->
+        <div class="px-8 py-8 text-center border-b border-warm-200">
+          <div class="mb-3">
+            <span class="text-5xl font-heading font-bold">€2,000</span>
+            <span class="text-brand-800/50 ml-1 text-sm">once-off setup</span>
           </div>
+          <div class="text-brand-800/60">
+            then <span class="text-2xl font-heading font-bold text-brand-800">€500</span> <span class="text-brand-800/50 text-sm">per year</span>
+          </div>
+          <p class="text-xs text-brand-800/40 mt-3">First year total: €2,500</p>
+        </div>
+
+        <!-- What's included -->
+        <div class="px-8 py-8">
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-800/50 mb-5">Everything included:</p>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-brand-800/70 text-sm">Custom design & build</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-brand-800/70 text-sm">Content setup & migration</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-brand-800/70 text-sm">Hosting, security & backups</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-brand-800/70 text-sm">Daily liturgical content</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-brand-800/70 text-sm">WordPress updates & maintenance</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-brand-800/70 text-sm">Training, documentation & support</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="px-8 pb-8">
+          <a href="/contact" class="block w-full bg-brand-700 text-white text-center px-6 py-4 rounded-xl font-semibold hover:bg-brand-600 transition-all duration-300 shadow-md hover:shadow-lg text-sm tracking-wide">
+            Start Your Parish Website
+          </a>
         </div>
       </div>
     </div>

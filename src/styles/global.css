@@ -1,145 +1,131 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
-  --color-brand: #047857;
-  --color-accent: #06A97B;
-  --color-accent-2: #1D0478;
-  
-  /* Define theme colors based on main brand color */
-  --color-brand-50: oklch(0.99 0.04 160.34);
-  --color-brand-100: oklch(0.97 0.07 162.73);
-  --color-brand-200: oklch(0.92 0.13 164.05);
-  --color-brand-300: oklch(0.85 0.17 166.53);
-  --color-brand-400: oklch(0.76 0.17 168.23);
-  --color-brand-500: oklch(0.63 0.17 168.91);
-  --color-brand-600: oklch(0.52 0.14 169.65);
-  --color-brand-700: oklch(0.45 0.11 170.02); /* Main brand color #047857 */
-  --color-brand-800: oklch(0.37 0.09 169.28);
-  --color-brand-900: oklch(0.30 0.07 168.76);
-  --color-brand-950: oklch(0.20 0.06 168.45);
+  /* Warm, elegant brand palette — deep burgundy/wine with gold accents */
+  --color-brand: #6B2D3E;
+  --color-accent: #B8860B;
+  --color-accent-2: #8B4513;
 
-  /* Stained Glass Colors */
-  --color-stained-green: #047857;
-  --color-stained-deep-red: #780425;
-  --color-stained-forest: #04781D;
-  --color-stained-teal: #045F78;
-  --color-stained-purple: #570478;
-  --color-stained-blue: #1F3A5F; /* Updated to navy */
-  --color-stained-bright-red: #EA1715;
-  
-  /* Converting stained glass hex colors to OKLCH for better gradients */
-  --color-stained-green-oklch: oklch(0.45 0.11 170.02);
-  --color-stained-deep-red-oklch: oklch(0.32 0.15 23.18);
-  --color-stained-forest-oklch: oklch(0.45 0.11 142.02);
-  --color-stained-teal-oklch: oklch(0.41 0.07 212.31);
-  --color-stained-purple-oklch: oklch(0.31 0.17 306.45);
-  --color-stained-blue-oklch: oklch(0.23 0.16 264.28);
-  --color-stained-bright-red-oklch: oklch(0.53 0.23 27.16);
+  /* Brand scale — warm burgundy */
+  --color-brand-50: #FDF6F8;
+  --color-brand-100: #F9E8ED;
+  --color-brand-200: #F0CCDA;
+  --color-brand-300: #E3A3B8;
+  --color-brand-400: #D1728F;
+  --color-brand-500: #B74B6A;
+  --color-brand-600: #983B54;
+  --color-brand-700: #6B2D3E;
+  --color-brand-800: #542434;
+  --color-brand-900: #3D1A26;
+  --color-brand-950: #2A111A;
 
-  /* Brand fonts */
+  /* Warm neutral palette */
+  --color-warm-50: #FEFCF9;
+  --color-warm-100: #FDF8F0;
+  --color-warm-200: #F5EDE0;
+  --color-warm-300: #E8DCCA;
+  --color-warm-400: #D4C4A8;
+
+  /* Gold accent scale */
+  --color-gold: #B8860B;
+  --color-gold-light: #D4A843;
+  --color-gold-dark: #8B6508;
+
+  /* Stained Glass Colors — warmer, more muted, church-like */
+  --color-stained-green: #2D5A3D;
+  --color-stained-deep-red: #7A2332;
+  --color-stained-forest: #3A5F2E;
+  --color-stained-teal: #2A5A6B;
+  --color-stained-purple: #4A2D6B;
+  --color-stained-blue: #2E4A6B;
+  --color-stained-bright-red: #9B3030;
+  --color-stained-gold: #8B6508;
+
+  /* Brand fonts — elegant serif + clean sans */
   --font-heading: 'Lora', serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-body: 'Inter', 'Open Sans', sans-serif;
 }
 
-/* Custom utility classes for stained glass effects */
+/* Custom utility classes */
 @layer utilities {
+  /* Warm elegant gradient for hero/CTA backgrounds */
   .bg-stained-gradient {
-    background: linear-gradient(to bottom right, 
-      var(--color-stained-green), 
-      var(--color-stained-teal), 
+    background: linear-gradient(135deg,
+      var(--color-stained-deep-red),
+      var(--color-stained-purple),
       var(--color-stained-blue));
-    opacity: 0.9;
+    opacity: 0.92;
   }
-  
-  /* Stained glass panel utilities */
+
+  /* Stained glass panel utilities — softer, more muted */
   .stained-panel-red {
-    background-color: color-mix(in oklch, var(--color-stained-deep-red) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-deep-red) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .stained-panel-bright-red {
-    background-color: color-mix(in oklch, var(--color-stained-bright-red) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-bright-red) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .stained-panel-green {
-    background-color: color-mix(in oklch, var(--color-stained-green) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-green) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .stained-panel-forest {
-    background-color: color-mix(in oklch, var(--color-stained-forest) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-forest) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .stained-panel-teal {
-    background-color: color-mix(in oklch, var(--color-stained-teal) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-teal) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .stained-panel-purple {
-    background-color: color-mix(in oklch, var(--color-stained-purple) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-purple) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
+
   .stained-panel-blue {
-    background-color: color-mix(in oklch, var(--color-stained-blue) 30%, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in oklch, var(--color-stained-blue) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
-  /* Consistent spacing classes */
-  .section-spacing {
-    @apply py-16 md:py-24;
+
+  .stained-panel-gold {
+    background-color: color-mix(in oklch, var(--color-stained-gold) 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center;
+
+  /* Warm background utilities */
+  .bg-warm {
+    background-color: var(--color-warm-50);
   }
-  
-  .section-subtitle {
-    @apply text-lg text-gray-600 max-w-3xl mx-auto text-center mb-12 md:mb-16;
+
+  .bg-warm-100 {
+    background-color: var(--color-warm-100);
   }
-  
-  /* Button styles for consistency */
-  .btn-primary {
-    @apply bg-brand-700 text-white px-6 py-3 rounded-lg font-medium shadow-md 
-           transition-all duration-300 hover:bg-brand-600 hover:shadow-lg 
-           hover:scale-105 hover:-translate-y-1 text-center;
-  }
-  
-  .btn-secondary {
-    @apply bg-white text-brand-700 border-2 border-brand-700 px-6 py-3 rounded-lg 
-           font-medium shadow-md transition-all duration-300 hover:bg-brand-50 
-           hover:shadow-lg hover:scale-105 hover:-translate-y-1 text-center;
-  }
-  
-  .btn-outline {
-    @apply bg-transparent text-brand-700 border-2 border-brand-700 px-6 py-3 
-           rounded-lg font-medium transition-all duration-300 hover:bg-brand-50 
-           hover:shadow-md hover:scale-105 text-center;
-  }
-  
-  /* Card styles */
-  .card-base {
-    @apply bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden 
-           transition-all duration-300 hover:shadow-xl;
+
+  .bg-warm-200 {
+    background-color: var(--color-warm-200);
   }
 }
 
 /* Base typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #2D1B1E;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: #fff;
-  color: #333;
-  line-height: 1.6;
+  background-color: var(--color-warm-50);
+  color: #4A3B3E;
+  line-height: 1.7;
 }
 
 /* Font size hierarchy */
@@ -149,3 +135,14 @@ h3 { @apply text-2xl md:text-3xl; }
 h4 { @apply text-xl md:text-2xl; }
 h5 { @apply text-lg md:text-xl; }
 h6 { @apply text-base md:text-lg; }
+
+/* Smooth underline links */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* Selection colour */
+::selection {
+  background-color: #F0CCDA;
+  color: #3D1A26;
+}

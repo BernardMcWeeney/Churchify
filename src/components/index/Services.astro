@@ -1,137 +1,90 @@
 ---
-// src/components/index/Services.astro
+// src/components/index/Services.astro — "What's Included" feature cards
 ---
-<!-- Services Overview -->
-<section class="py-16">
+
+<section class="py-20 md:py-28">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold mb-4 text-[color:var(--color-brand)]">Complete Digital Parish Solutions</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">Everything your parish needs to connect with your community and streamline operations.</p>
+      <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">The Platform</p>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Everything Your Parish Needs</h2>
+      <p class="text-brand-800/60 max-w-2xl mx-auto text-lg leading-relaxed">One platform. One subscription. A complete parish website with features designed for Catholic communities.</p>
     </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Service Card 1 - Green Theme -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-[color:var(--color-brand)] transition-all hover:shadow-xl duration-300 group">
-        <div class="h-48 relative overflow-hidden">
-          <!-- Stained Glass Background - Green Theme -->
-          <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#047857] via-[#04781D] to-[#045F78] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
-            
-            <!-- Glass panels -->
-            <div class="absolute inset-0 grid grid-cols-3 grid-rows-2 transition-all duration-500 group-hover:rotate-1">
-              <div class="bg-[#047857]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#047857]/40"></div>
-              <div class="bg-[#04781D]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/40"></div>
-              <div class="bg-[#045F78]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/40"></div>
-              
-              <div class="bg-[#04781D]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#04781D]/40"></div>
-              <div class="bg-[#045F78]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/40"></div>
-              <div class="bg-[#047857]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#047857]/40"></div>
-            </div>
-            
-            <!-- Light ray effect -->
-            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
-          </div>
-          
-          <!-- Icon -->
-          <div class="relative z-10 h-full flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white transition-all duration-500 group-hover:drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-          </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <!-- Feature 1: Daily Liturgical Content -->
+      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
+        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2 text-[color:var(--color-brand)]">Custom Church Websites</h3>
-          <p class="text-gray-600 mb-4">Beautiful, mobile-responsive websites tailored for your parish.</p>
-          <a href="/services#websites" class="text-[color:var(--color-brand)] font-medium hover:text-[color:var(--color-accent)] inline-flex items-center group-hover:underline">
-            Learn more
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+        <h3 class="text-lg font-heading font-bold mb-3">Daily Liturgical Content</h3>
+        <p class="text-brand-800/60 leading-relaxed text-sm">Mass readings, feast of the day, saint of the day, and rosary mysteries — updated daily without any effort from your parish.</p>
       </div>
-      
-      <!-- Service Card 2 - Blue Theme -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-[color:var(--color-brand)] transition-all hover:shadow-xl duration-300 group">
-        <div class="h-48 relative overflow-hidden">
-          <!-- Stained Glass Background - Blue Theme -->
-          <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#045F78] via-[#1D0478] to-[#045F78] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
-            
-            <!-- Glass panels -->
-            <div class="absolute inset-0 grid grid-cols-3 grid-rows-2 transition-all duration-500 group-hover:rotate-1">
-              <div class="bg-[#045F78]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/40"></div>
-              <div class="bg-[#1D0478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/40"></div>
-              <div class="bg-[#570478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/40"></div>
-              
-              <div class="bg-[#1D0478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#1D0478]/40"></div>
-              <div class="bg-[#570478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/40"></div>
-              <div class="bg-[#045F78]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#045F78]/40"></div>
-            </div>
-            
-            <!-- Light ray effect -->
-            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
-          </div>
-          
-          <!-- Icon -->
-          <div class="relative z-10 h-full flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white transition-all duration-500 group-hover:drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
+
+      <!-- Feature 2: Mass Times -->
+      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
+        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2 text-[color:var(--color-brand)]">Online Donations</h3>
-          <p class="text-gray-600 mb-4">Secure, easy-to-use donation systems to support your parish.</p>
-          <a href="/services#donations" class="text-[color:var(--color-brand)] font-medium hover:text-[color:var(--color-accent)] inline-flex items-center group-hover:underline">
-            Learn more
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+        <h3 class="text-lg font-heading font-bold mb-3">Mass Times Management</h3>
+        <p class="text-brand-800/60 leading-relaxed text-sm">Recurring schedules, special Masses, Holy Days, multiple churches — all easy to manage with a simple editor.</p>
       </div>
-      
-      <!-- Service Card 3 - Red Theme -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden border-2 border-[color:var(--color-brand)] transition-all hover:shadow-xl duration-300 group">
-        <div class="h-48 relative overflow-hidden">
-          <!-- Stained Glass Background - Red Theme -->
-          <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#780425] via-[#EA1715] to-[#570478] opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
-            
-            <!-- Glass panels -->
-            <div class="absolute inset-0 grid grid-cols-3 grid-rows-2 transition-all duration-500 group-hover:rotate-1">
-              <div class="bg-[#780425]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#780425]/40"></div>
-              <div class="bg-[#EA1715]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#EA1715]/40"></div>
-              <div class="bg-[#570478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/40"></div>
-              
-              <div class="bg-[#EA1715]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#EA1715]/40"></div>
-              <div class="bg-[#570478]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#570478]/40"></div>
-              <div class="bg-[#780425]/30 border border-white/10 transition-colors duration-500 group-hover:bg-[#780425]/40"></div>
-            </div>
-            
-            <!-- Light ray effect -->
-            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 transition-all duration-500 group-hover:to-white/20"></div>
-          </div>
-          
-          <!-- Icon -->
-          <div class="relative z-10 h-full flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white transition-all duration-500 group-hover:drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-          </div>
+
+      <!-- Feature 3: Parish Notices -->
+      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
+        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2 text-[color:var(--color-brand)]">Live Streaming</h3>
-          <p class="text-gray-600 mb-4">High-quality live streaming solutions for virtual services.</p>
-          <a href="/services#streaming" class="text-[color:var(--color-brand)] font-medium hover:text-[color:var(--color-accent)] inline-flex items-center group-hover:underline">
-            Learn more
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+        <h3 class="text-lg font-heading font-bold mb-3">Notices & Bulletin</h3>
+        <p class="text-brand-800/60 leading-relaxed text-sm">Death notices, baptisms, marriages, announcements, and weekly bulletin upload — keep your community informed.</p>
       </div>
+
+      <!-- Feature 4: Sacraments & Directory -->
+      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
+        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-heading font-bold mb-3">Sacraments & Directory</h3>
+        <p class="text-brand-800/60 leading-relaxed text-sm">Dedicated pages for each sacrament, clergy profiles, parish groups, schools, and cemetery information.</p>
+      </div>
+
+      <!-- Feature 5: Donations -->
+      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
+        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-heading font-bold mb-3">Online Donations</h3>
+        <p class="text-brand-800/60 leading-relaxed text-sm">Secure giving powered by Stripe. One-off and recurring donations with full compliance and transparent processing.</p>
+      </div>
+
+      <!-- Feature 6: Livestream -->
+      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
+        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-heading font-bold mb-3">Livestream Integration</h3>
+        <p class="text-brand-800/60 leading-relaxed text-sm">Embed your livestream from YouTube, ChurchServices.tv or any provider. Clearly visible broadcast schedule included.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/services" class="text-brand-700 font-medium hover:text-brand-600 inline-flex items-center gap-2 transition-colors text-sm">
+        See the full feature list
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>

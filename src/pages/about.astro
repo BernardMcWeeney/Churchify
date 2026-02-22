@@ -9,32 +9,29 @@ import Story from '../components/about/Story.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="About Us - Churchify.ie">
+<Layout title="About — Churchify">
   <Header />
-  
-  <PageHeader 
-    title="About Churchify.ie" 
-    tagline="Empowering parishes across Ireland with modern digital solutions." 
+
+  <PageHeader
+    title="About Churchify"
+    tagline="Building the modern parish website. One product, one mission."
   />
-  
-  <!-- Our Story -->
+
   <Story />
-  
-  <!-- Our Mission -->
+
   <Mission />
-  
-  <!-- Our Values -->
+
   <Values />
-  
-  
+
   <!-- CTA Section -->
-  <section class="py-20 bg-brand-700 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Work With Us?</h2>
-      <p class="text-xl mb-8 max-w-3xl mx-auto">Let's discuss how we can help your parish embrace the digital age while preserving your unique traditions and values.</p>
-      <a href="/contact" class="bg-white text-brand-700 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors inline-block">Contact Our Team</a>
+  <section class="py-24 bg-gradient-to-br from-brand-800 via-brand-900 to-brand-950 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.05)_0%,_transparent_60%)]"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6 text-white">Ready to Work With Us?</h2>
+      <p class="text-xl mb-10 max-w-3xl mx-auto text-white/80 leading-relaxed">Let's discuss how Churchify can give your parish a modern online home.</p>
+      <a href="/contact" class="bg-white text-brand-800 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-block">Contact Our Team</a>
     </div>
   </section>
-  
+
   <Footer />
 </Layout>
