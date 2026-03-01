@@ -1,5 +1,3 @@
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-
 export async function onRequestPost(context) {
   try {
     const formData = await context.request.formData();
@@ -12,23 +10,11 @@ export async function onRequestPost(context) {
     const turnstileToken = formData.get('cf-turnstile-response');
 
     if (!name || !email || !message) {
-      return new Response(JSON.stringify({
-        success: false,
-        message: 'Missing required fields'
-      }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return jsonResponse({ success: false, message: 'Missing required fields' }, 400);
     }
 
     if (!turnstileToken) {
-      return new Response(JSON.stringify({
-        success: false,
-        message: 'CAPTCHA verification failed'
-      }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return jsonResponse({ success: false, message: 'CAPTCHA verification failed' }, 400);
     }
 
     const turnstileVerification = await verifyTurnstileToken(
@@ -38,13 +24,7 @@ export async function onRequestPost(context) {
     );
 
     if (!turnstileVerification.success) {
-      return new Response(JSON.stringify({
-        success: false,
-        message: 'CAPTCHA verification failed'
-      }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return jsonResponse({ success: false, message: 'CAPTCHA verification failed' }, 400);
     }
 
     const region = context.env.AWS_REGION;
@@ -61,81 +41,78 @@ export async function onRequestPost(context) {
         FROM_EMAIL_ADDRESS: !!fromAddress,
         TO_EMAIL_ADDRESS: !!toAddress,
       });
-      return new Response(JSON.stringify({
-        success: false,
-        message: 'Server configuration error. Please contact us directly at info@churchify.ie.'
-      }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return jsonResponse({ success: false, message: 'Server configuration error. Please contact us directly at info@churchify.ie.' }, 500);
     }
 
-    const sesClient = new SESClient({
-      region,
-      credentials: {
-        accessKeyId,
-        secretAccessKey,
-      },
-    });
-
-    const emailParams = {
-      Source: fromAddress,
-      Destination: {
-        ToAddresses: [toAddress],
-      },
-      Message: {
-        Subject: {
-          Data: `Churchify Contact: ${subject} — ${name}`,
-          Charset: 'UTF-8',
-        },
-        Body: {
-          Text: {
-            Data: `
-Name: ${name}
-Email: ${email}
-Parish: ${parish}
-Subject: ${subject}
-Message: ${message}
-            `,
-            Charset: 'UTF-8',
-          },
-          Html: {
-            Data: `
-<h2>New Contact Form Submission</h2>
+    const textBody = `Name: ${name}\nEmail: ${email}\nParish: ${parish}\nSubject: ${subject}\nMessage: ${message}`;
+    const htmlBody = `<h2>New Contact Form Submission</h2>
 <p><strong>Name:</strong> ${name}</p>
 <p><strong>Email:</strong> ${email}</p>
 <p><strong>Parish:</strong> ${parish}</p>
 <p><strong>Subject:</strong> ${subject}</p>
-<p><strong>Message:</strong> ${message}</p>
-            `,
-            Charset: 'UTF-8',
-          },
-        },
+<p><strong>Message:</strong> ${message}</p>`;
+
+    const params = new URLSearchParams();
+    params.append('Action', 'SendEmail');
+    params.append('Source', fromAddress);
+    params.append('Destination.ToAddresses.member.1', toAddress);
+    params.append('Message.Subject.Data', `Churchify Contact: ${subject} — ${name}`);
+    params.append('Message.Subject.Charset', 'UTF-8');
+    params.append('Message.Body.Text.Data', textBody);
+    params.append('Message.Body.Text.Charset', 'UTF-8');
+    params.append('Message.Body.Html.Data', htmlBody);
+    params.append('Message.Body.Html.Charset', 'UTF-8');
+    params.append('Version', '2010-12-01');
+
+    const endpoint = `https://email.${region}.amazonaws.com/`;
+    const now = new Date();
+    const amzDate = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const dateStamp = amzDate.slice(0, 8);
+
+    const body = params.toString();
+    const bodyHash = await sha256Hex(body);
+
+    const canonicalHeaders = `content-type:application/x-www-form-urlencoded\nhost:email.${region}.amazonaws.com\nx-amz-date:${amzDate}\n`;
+    const signedHeaders = 'content-type;host;x-amz-date';
+    const canonicalRequest = `POST\n/\n\n${canonicalHeaders}\n${signedHeaders}\n${bodyHash}`;
+
+    const credentialScope = `${dateStamp}/${region}/ses/aws4_request`;
+    const stringToSign = `AWS4-HMAC-SHA256\n${amzDate}\n${credentialScope}\n${await sha256Hex(canonicalRequest)}`;
+
+    const signingKey = await getSignatureKey(secretAccessKey, dateStamp, region, 'ses');
+    const signature = await hmacHex(signingKey, stringToSign);
+
+    const authHeader = `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`;
+
+    const sesResponse = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Amz-Date': amzDate,
+        'Authorization': authHeader,
       },
-    };
-
-    const command = new SendEmailCommand(emailParams);
-    await sesClient.send(command);
-
-    return new Response(JSON.stringify({
-      success: true,
-      message: 'Form submitted successfully'
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
+      body,
     });
+
+    if (!sesResponse.ok) {
+      const errorText = await sesResponse.text();
+      console.error('SES error:', sesResponse.status, errorText);
+      return jsonResponse({ success: false, message: 'Something went wrong. Please try again or email us directly at info@churchify.ie.' }, 500);
+    }
+
+    return jsonResponse({ success: true, message: 'Form submitted successfully' });
 
   } catch (error) {
     console.error('Contact form error:', error?.name, error?.message, error?.stack);
-
-    return new Response(JSON.stringify({
-      success: false,
-      message: 'Something went wrong. Please try again or email us directly at info@churchify.ie.'
-    }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return jsonResponse({ success: false, message: 'Something went wrong. Please try again or email us directly at info@churchify.ie.' }, 500);
   }
+}
+
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 
 async function verifyTurnstileToken(token, ip, context) {
@@ -149,7 +126,7 @@ async function verifyTurnstileToken(token, ip, context) {
 
     const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
-      body: formData
+      body: formData,
     });
 
     return await result.json();
@@ -157,4 +134,35 @@ async function verifyTurnstileToken(token, ip, context) {
     console.error('Turnstile verification error:', error);
     return { success: false, error: 'Verification failed' };
   }
+}
+
+// AWS Signature V4 helpers using Web Crypto API (Workers-compatible)
+async function sha256Hex(message) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(message);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return arrayBufferToHex(hash);
+}
+
+async function hmac(key, message) {
+  const encoder = new TextEncoder();
+  const keyData = typeof key === 'string' ? encoder.encode(key) : key;
+  const cryptoKey = await crypto.subtle.importKey('raw', keyData, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  return await crypto.subtle.sign('HMAC', cryptoKey, encoder.encode(message));
+}
+
+async function hmacHex(key, message) {
+  const result = await hmac(key, message);
+  return arrayBufferToHex(result);
+}
+
+async function getSignatureKey(secretKey, dateStamp, region, service) {
+  const kDate = await hmac('AWS4' + secretKey, dateStamp);
+  const kRegion = await hmac(kDate, region);
+  const kService = await hmac(kRegion, service);
+  return await hmac(kService, 'aws4_request');
+}
+
+function arrayBufferToHex(buffer) {
+  return [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, '0')).join('');
 }
