@@ -3,7 +3,7 @@ import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
 const defaultErrorMessage = 'Something went wrong. Please try again or email us directly at info@churchify.ie.';
 const captchaErrorMessage = 'CAPTCHA verification failed. Please try again.';
-export const prerender = false;
+export const prerender = true;
 
 function jsonResponse(body: Record<string, unknown>, status = 200) {
   return new Response(JSON.stringify(body), {
