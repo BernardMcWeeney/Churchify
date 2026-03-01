@@ -14,7 +14,7 @@ import Footer from '../components/Footer.astro';
 
   <PageHeader
     title="About Churchify"
-    tagline="Building the modern parish website. One product, one mission."
+    tagline="One product. One audience. One promise. We build the modern parish website."
   />
 
   <Story />
@@ -24,12 +24,15 @@ import Footer from '../components/Footer.astro';
   <Values />
 
   <!-- CTA Section -->
-  <section class="py-24 bg-gradient-to-br from-brand-800 via-brand-900 to-brand-950 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.05)_0%,_transparent_60%)]"></div>
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6 text-white">Ready to Work With Us?</h2>
-      <p class="text-xl mb-10 max-w-3xl mx-auto text-white/80 leading-relaxed">Let's discuss how Churchify can give your parish a modern online home.</p>
-      <a href="/contact" class="bg-white text-brand-800 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-block">Contact Our Team</a>
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="/st-patricks-cathedral.webp" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-primary/90"></div>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white">Ready to Give Your Parish a Modern Home Online?</h2>
+      <p class="text-xl mb-10 max-w-3xl mx-auto text-white/80 leading-relaxed">€2,000 setup. €500 per year. Everything included.</p>
+      <a href="/contact" class="bg-accent text-foreground px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-accent/90 hover:shadow-xl transition-all duration-300 inline-block">Contact Our Team</a>
     </div>
   </section>
 

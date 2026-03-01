@@ -15,68 +15,144 @@ import PageHeader from '../components/PageHeader.astro';
   />
 
   <!-- Portfolio Grid -->
-  <section class="py-24 bg-warm-50">
-    <div class="container mx-auto px-4">
+  <section class="py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
       <!-- Section label -->
       <div class="text-center mb-16">
-        <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">Our Portfolio</p>
-        <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-900 mb-4">Trusted by Parishes Nationwide</h2>
-        <p class="text-brand-800/60 max-w-2xl mx-auto leading-relaxed">Every parish is unique. We craft websites that honour tradition while embracing the digital age.</p>
+        <p class="text-xs uppercase tracking-widest text-accent mb-3 font-medium">Our Portfolio</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Trusted by Parishes Across Ireland</h2>
+        <p class="text-muted-foreground max-w-2xl mx-auto leading-relaxed">Every parish is unique. We craft websites that honour tradition while embracing the digital age.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-        <!-- Parish 1 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-warm-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-500 group">
-          <div class="relative overflow-hidden">
-            <img src="/cat1-st-fin-barre-cork.webp" alt="St. Mary's Parish" class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-brand-900/10 to-transparent"></div>
+        <!-- Parish 1: St. Mary's Drogheda -->
+        <div class="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-foreground/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden bg-muted">
+            <div class="h-56 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p class="text-sm font-serif font-bold text-foreground">stmarysdrogheda.ie</p>
+              </div>
+            </div>
           </div>
           <div class="p-7">
-            <h3 class="font-heading text-xl font-bold mb-1.5 text-brand-900">St. Mary's Parish</h3>
-            <p class="text-sm text-brand-800/40 mb-3 font-medium">Dublin</p>
-            <p class="text-brand-800/60 mb-5 leading-relaxed">Complete parish website with daily liturgical content, Mass times management, online donations, and livestream integration.</p>
+            <h3 class="font-serif text-xl font-bold mb-1.5">St. Mary's Parish</h3>
+            <p class="text-sm text-muted-foreground mb-3 font-medium">Drogheda, Co. Louth</p>
+            <p class="text-muted-foreground mb-5 leading-relaxed">Complete parish website with daily liturgical content, Mass times management, and community engagement features.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Full Website</span>
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Donations</span>
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Livestream</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Daily Content</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Mass Times</span>
             </div>
           </div>
         </div>
 
-        <!-- Parish 2 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-warm-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-500 group">
-          <div class="relative overflow-hidden">
-            <img src="/st-patricks-cathedral.webp" alt="St. Patrick's Cathedral" class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-brand-900/10 to-transparent"></div>
+        <!-- Parish 2: Duleek & Bellewstown -->
+        <div class="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-foreground/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden bg-muted">
+            <div class="h-56 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p class="text-sm font-serif font-bold text-foreground">duleekbellewstownparish.com</p>
+              </div>
+            </div>
           </div>
           <div class="p-7">
-            <h3 class="font-heading text-xl font-bold mb-1.5 text-brand-900">St. Patrick's Cathedral</h3>
-            <p class="text-sm text-brand-800/40 mb-3 font-medium">Dublin</p>
-            <p class="text-brand-800/60 mb-5 leading-relaxed">Modern parish website for one of Ireland's most historic cathedrals, with emphasis on heritage content and visitor information.</p>
+            <h3 class="font-serif text-xl font-bold mb-1.5">Duleek & Bellewstown Parish</h3>
+            <p class="text-sm text-muted-foreground mb-3 font-medium">Co. Meath</p>
+            <p class="text-muted-foreground mb-5 leading-relaxed">Parish website created during COVID-19 to keep the community connected, with livestream integration and comprehensive parish information.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Full Website</span>
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Parish History</span>
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Calendar</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Livestream</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">COVID Support</span>
             </div>
           </div>
         </div>
 
-        <!-- Parish 3 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-warm-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-500 group">
-          <div class="relative overflow-hidden">
-            <img src="/cat2-christ-church-cathedral.webp" alt="Holy Trinity Parish" class="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-brand-900/10 to-transparent"></div>
+        <!-- Parish 3: Donore & Rossnaree -->
+        <div class="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-foreground/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden bg-muted">
+            <div class="h-56 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p class="text-sm font-serif font-bold text-foreground">donorerossnareeparish.com</p>
+              </div>
+            </div>
           </div>
           <div class="p-7">
-            <h3 class="font-heading text-xl font-bold mb-1.5 text-brand-900">Holy Trinity Parish</h3>
-            <p class="text-sm text-brand-800/40 mb-3 font-medium">Galway</p>
-            <p class="text-brand-800/60 mb-5 leading-relaxed">Parish website with integrated donation platform, weekly bulletin uploads, and comprehensive sacrament information pages.</p>
+            <h3 class="font-serif text-xl font-bold mb-1.5">Donore & Rossnaree Parish</h3>
+            <p class="text-sm text-muted-foreground mb-3 font-medium">Co. Meath</p>
+            <p class="text-muted-foreground mb-5 leading-relaxed">Professional parish website with easy-to-use design, praised by parishioners, local schools, and neighbouring parishes alike.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Full Website</span>
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Donations</span>
-              <span class="text-xs bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Bulletin</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Notices</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Sacraments</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parish 4: Holy Family Drogheda -->
+        <div class="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-foreground/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden bg-muted">
+            <div class="h-56 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p class="text-sm font-serif font-bold text-foreground">holyfamilydrogheda.ie</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-serif text-xl font-bold mb-1.5">Holy Family Parish</h3>
+            <p class="text-sm text-muted-foreground mb-3 font-medium">Drogheda, Co. Louth</p>
+            <p class="text-muted-foreground mb-5 leading-relaxed">Modern parish website serving the Holy Family community with Mass times, parish notices, and community information.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Mass Times</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Notices</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parish 5: Bohermeen -->
+        <div class="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-foreground/5 transition-all duration-500 group">
+          <div class="relative overflow-hidden bg-muted">
+            <div class="h-56 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p class="text-sm font-serif font-bold text-foreground">bohermeenparish.ie</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-serif text-xl font-bold mb-1.5">Bohermeen Parish</h3>
+            <p class="text-sm text-muted-foreground mb-3 font-medium">Co. Meath</p>
+            <p class="text-muted-foreground mb-5 leading-relaxed">Clean, welcoming parish website with bulletin uploads, sacrament information, and parish directory features.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Full Website</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Bulletin</span>
+              <span class="text-xs bg-muted text-foreground px-3 py-1 rounded-full font-medium">Directory</span>
             </div>
           </div>
         </div>
@@ -85,26 +161,53 @@ import PageHeader from '../components/PageHeader.astro';
 
       <!-- More parishes coming -->
       <div class="text-center mt-20">
-        <p class="text-brand-800/40 mb-8 text-lg">More parishes joining Churchify every month.</p>
-        <a href="/contact" class="bg-brand-800 text-white px-10 py-4 rounded-xl font-semibold hover:bg-brand-700 transition-all duration-300 shadow-lg shadow-brand-900/15 hover:shadow-xl hover:shadow-brand-900/20 inline-block">
+        <p class="text-muted-foreground mb-8 text-lg">More parishes joining Churchify every month.</p>
+        <a href="/contact" class="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-semibold hover:bg-primary/90 transition-colors inline-block">
           Get Your Parish Online
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonial Strip -->
-  <section class="py-20 bg-warm-100">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-500 mb-8 font-medium">What Parishes Say</p>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-300 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-        </svg>
-        <p class="font-heading text-xl md:text-2xl text-brand-900 leading-relaxed mb-8 italic">"Churchify understood exactly what our parish needed. The website is beautiful, the daily content keeps people coming back, and we never have to worry about the technical side. Best decision we've made."</p>
-        <div>
-          <p class="font-heading font-bold text-brand-900">Fr. Michael O'Connor</p>
-          <p class="text-sm text-brand-800/40 mt-1">St. Mary's Parish, Dublin</p>
+  <!-- Testimonials -->
+  <section class="py-20 bg-primary">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-xs uppercase tracking-widest text-accent mb-3 font-medium">What Parishes Say</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-foreground mb-4">Trusted by Parish Leaders</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Testimonial 1: Fr. John Conlon -->
+        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+          <div class="text-accent mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+          <p class="text-primary-foreground/80 mb-6 leading-relaxed">"Bernard was just great. He is very professional and he knew exactly what we wanted and needed. He helped us tremendously during COVID-19. Bernard created a website for the parish of Duleek and Bellewstown and I still get compliments about it to this day."</p>
+          <div class="border-t border-white/10 pt-5">
+            <p class="font-serif font-bold text-primary-foreground">Fr. John Conlon</p>
+            <p class="text-sm text-primary-foreground/50">Parish Priest</p>
+            <p class="text-xs text-primary-foreground/40 mt-1">Duleek & Bellewstown Parish</p>
+            <p class="text-xs text-accent mt-1 font-medium">duleekbellewstownparish.com</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Fr. Mark English -->
+        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+          <div class="text-accent mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+          <p class="text-primary-foreground/80 mb-6 leading-relaxed">"Bernard provides a professional service and has been a huge support since the installation of the parish website. Many parishioners have complimented the website design and how easy the website is to use. Indeed local schools and other parishes have also praised the website."</p>
+          <div class="border-t border-white/10 pt-5">
+            <p class="font-serif font-bold text-primary-foreground">Fr. Mark English</p>
+            <p class="text-sm text-primary-foreground/50">Parish Administrator</p>
+            <p class="text-xs text-primary-foreground/40 mt-1">Donore & Rossnaree Parish</p>
+            <p class="text-xs text-accent mt-1 font-medium">donorerossnareeparish.com</p>
+          </div>
         </div>
       </div>
     </div>
@@ -113,25 +216,14 @@ import PageHeader from '../components/PageHeader.astro';
   <!-- CTA -->
   <section class="py-24 relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-brand-800 via-brand-900 to-brand-950"></div>
-      <div class="absolute inset-0 hidden md:grid md:grid-cols-4 md:grid-rows-2">
-        <div class="stained-panel-red opacity-25"></div>
-        <div class="stained-panel-gold opacity-25"></div>
-        <div class="stained-panel-red opacity-25"></div>
-        <div class="stained-panel-gold opacity-25"></div>
-        <div class="stained-panel-gold opacity-25"></div>
-        <div class="stained-panel-red opacity-25"></div>
-        <div class="stained-panel-gold opacity-25"></div>
-        <div class="stained-panel-red opacity-25"></div>
-      </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white/5"></div>
+      <img src="/cat1-st-fin-barre-cork.webp" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-primary/90"></div>
     </div>
 
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <p class="text-xs uppercase tracking-widest text-brand-200/70 mb-4 font-medium">Join Us</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-white">Your Parish Could Be Next</h2>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-white">Your Parish Could Be Next</h2>
       <p class="text-xl mb-12 max-w-2xl mx-auto text-white/80 leading-relaxed">Join parishes across Ireland with a modern, professional website powered by Churchify.</p>
-      <a href="/contact" class="bg-white text-brand-800 px-10 py-4 rounded-xl font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 inline-block">
+      <a href="/contact" class="bg-accent text-foreground px-10 py-4 rounded-xl font-semibold shadow-lg transition-all duration-300 hover:bg-accent/90 hover:shadow-xl inline-block">
         Get Started Today
       </a>
     </div>

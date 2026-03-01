@@ -1,89 +1,82 @@
 ---
-// src/components/index/Services.astro — "What's Included" feature cards
+// src/components/index/Services.astro
 ---
 
 <section class="py-20 md:py-28">
-  <div class="container mx-auto px-4">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="text-center mb-16">
-      <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">The Platform</p>
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Everything Your Parish Needs</h2>
-      <p class="text-brand-800/60 max-w-2xl mx-auto text-lg leading-relaxed">One platform. One subscription. A complete parish website with features designed for Catholic communities.</p>
+      <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">What's Included</p>
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Everything Your Parish Needs</h2>
+      <p class="text-muted-foreground max-w-xl mx-auto text-lg">One platform. One price. Built specifically for Catholic parishes.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <!-- Feature 1: Daily Liturgical Content -->
-      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
-        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+      <div class="bg-card border border-border rounded-lg p-8 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
-        <h3 class="text-lg font-heading font-bold mb-3">Daily Liturgical Content</h3>
-        <p class="text-brand-800/60 leading-relaxed text-sm">Mass readings, feast of the day, saint of the day, and rosary mysteries — updated daily without any effort from your parish.</p>
+        <h3 class="text-lg font-serif font-bold mb-2">Daily Liturgical Content</h3>
+        <p class="text-muted-foreground text-sm">Readings, feast days, saints, rosary mysteries — updated daily, automatically.</p>
       </div>
 
-      <!-- Feature 2: Mass Times -->
-      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
-        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="bg-card border border-border rounded-lg p-8 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h3 class="text-lg font-heading font-bold mb-3">Mass Times Management</h3>
-        <p class="text-brand-800/60 leading-relaxed text-sm">Recurring schedules, special Masses, Holy Days, multiple churches — all easy to manage with a simple editor.</p>
+        <h3 class="text-lg font-serif font-bold mb-2">Mass Times</h3>
+        <p class="text-muted-foreground text-sm">Recurring schedules, special Masses, Holy Days, multiple churches.</p>
       </div>
 
-      <!-- Feature 3: Parish Notices -->
-      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
-        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="bg-card border border-border rounded-lg p-8 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
           </svg>
         </div>
-        <h3 class="text-lg font-heading font-bold mb-3">Notices & Bulletin</h3>
-        <p class="text-brand-800/60 leading-relaxed text-sm">Death notices, baptisms, marriages, announcements, and weekly bulletin upload — keep your community informed.</p>
+        <h3 class="text-lg font-serif font-bold mb-2">Notices & Bulletin</h3>
+        <p class="text-muted-foreground text-sm">Deaths, baptisms, marriages, announcements, and weekly bulletin upload.</p>
       </div>
 
-      <!-- Feature 4: Sacraments & Directory -->
-      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
-        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="bg-card border border-border rounded-lg p-8 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
           </svg>
         </div>
-        <h3 class="text-lg font-heading font-bold mb-3">Sacraments & Directory</h3>
-        <p class="text-brand-800/60 leading-relaxed text-sm">Dedicated pages for each sacrament, clergy profiles, parish groups, schools, and cemetery information.</p>
+        <h3 class="text-lg font-serif font-bold mb-2">Sacraments & Directory</h3>
+        <p class="text-muted-foreground text-sm">Dedicated sacrament pages, clergy profiles, parish groups, and schools.</p>
       </div>
 
-      <!-- Feature 5: Donations -->
-      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
-        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="bg-card border border-border rounded-lg p-8 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
         </div>
-        <h3 class="text-lg font-heading font-bold mb-3">Online Donations</h3>
-        <p class="text-brand-800/60 leading-relaxed text-sm">Secure giving powered by Stripe. One-off and recurring donations with full compliance and transparent processing.</p>
+        <h3 class="text-lg font-serif font-bold mb-2">Online Donations</h3>
+        <p class="text-muted-foreground text-sm">Secure giving powered by Stripe. One-off and recurring.</p>
       </div>
 
-      <!-- Feature 6: Livestream -->
-      <div class="bg-white p-8 rounded-2xl border border-warm-200 hover:border-brand-200 hover:shadow-lg transition-all duration-500 group">
-        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-100 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="bg-card border border-border rounded-lg p-8 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
         </div>
-        <h3 class="text-lg font-heading font-bold mb-3">Livestream Integration</h3>
-        <p class="text-brand-800/60 leading-relaxed text-sm">Embed your livestream from YouTube, ChurchServices.tv or any provider. Clearly visible broadcast schedule included.</p>
+        <h3 class="text-lg font-serif font-bold mb-2">Livestream</h3>
+        <p class="text-muted-foreground text-sm">YouTube, ChurchServices.tv or any provider. Broadcast schedule included.</p>
       </div>
+
     </div>
 
-    <div class="text-center mt-12">
-      <a href="/services" class="text-brand-700 font-medium hover:text-brand-600 inline-flex items-center gap-2 transition-colors text-sm">
-        See the full feature list
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+    <div class="text-center mt-14">
+      <a href="/services" class="bg-primary text-primary-foreground px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors inline-block text-sm">
+        See All Features
       </a>
     </div>
   </div>

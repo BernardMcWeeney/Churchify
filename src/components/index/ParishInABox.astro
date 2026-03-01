@@ -2,80 +2,86 @@
 // src/components/index/ParishInABox.astro — Pricing Section
 ---
 
-<section class="py-20 md:py-28 bg-warm-100">
-  <div class="container mx-auto px-4">
+<section class="py-20 md:py-28 bg-secondary/50">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="text-center mb-12">
-      <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">Pricing</p>
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Simple, Transparent Pricing</h2>
-      <p class="text-brand-800/60 max-w-2xl mx-auto text-lg leading-relaxed">No hidden fees. No surprises. Everything your parish needs in one package.</p>
+      <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Pricing</p>
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Simple, Transparent Pricing</h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">One product. One price. Design, build, content setup, hosting, security, updates and support — everything included.</p>
     </div>
 
     <div class="max-w-md mx-auto">
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-warm-200">
+      <div class="bg-card rounded-2xl shadow-xl overflow-hidden border border-border">
         <!-- Header -->
-        <div class="bg-gradient-to-br from-brand-800 to-brand-900 text-white px-8 py-8 text-center">
-          <h3 class="text-lg font-heading font-bold mb-1 text-white/95">Complete Parish Website</h3>
-          <p class="text-brand-200/60 text-sm">Everything included. Nothing extra.</p>
+        <div class="bg-primary px-8 py-8 text-center">
+          <h3 class="text-lg font-serif font-bold mb-1 text-primary-foreground">Complete Parish Website</h3>
+          <p class="text-primary-foreground/60 text-sm">Everything included. Nothing extra.</p>
         </div>
 
         <!-- Pricing -->
-        <div class="px-8 py-8 text-center border-b border-warm-200">
+        <div class="px-8 py-8 text-center border-b border-border">
           <div class="mb-3">
-            <span class="text-5xl font-heading font-bold">€2,000</span>
-            <span class="text-brand-800/50 ml-1 text-sm">once-off setup</span>
+            <span class="text-5xl font-serif font-bold">€2,000</span>
+            <span class="text-muted-foreground ml-1 text-sm">once-off setup</span>
           </div>
-          <div class="text-brand-800/60">
-            then <span class="text-2xl font-heading font-bold text-brand-800">€500</span> <span class="text-brand-800/50 text-sm">per year</span>
+          <div class="text-muted-foreground">
+            then <span class="text-2xl font-serif font-bold text-foreground">€500</span> <span class="text-muted-foreground text-sm">per year</span>
           </div>
-          <p class="text-xs text-brand-800/40 mt-3">First year total: €2,500</p>
+          <p class="text-xs text-muted-foreground mt-3">First year total: €2,500</p>
         </div>
 
         <!-- What's included -->
         <div class="px-8 py-8">
-          <p class="text-xs font-semibold uppercase tracking-wider text-brand-800/50 mb-5">Everything included:</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-5">Everything included:</p>
           <ul class="space-y-3">
             <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-brand-800/70 text-sm">Custom design & build</span>
+              <span class="text-muted-foreground text-sm">Custom design & build</span>
             </li>
             <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-brand-800/70 text-sm">Content setup & migration</span>
+              <span class="text-muted-foreground text-sm">Content setup & migration</span>
             </li>
             <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-brand-800/70 text-sm">Hosting, security & backups</span>
+              <span class="text-muted-foreground text-sm">Daily liturgical content</span>
             </li>
             <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-brand-800/70 text-sm">Daily liturgical content</span>
+              <span class="text-muted-foreground text-sm">Hosting, security & backups</span>
             </li>
             <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-brand-800/70 text-sm">WordPress updates & maintenance</span>
+              <span class="text-muted-foreground text-sm">Domain renewal & DNS</span>
             </li>
             <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-brand-800/70 text-sm">Training, documentation & support</span>
+              <span class="text-muted-foreground text-sm">WordPress updates & maintenance</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-muted-foreground text-sm">Training, documentation & support</span>
             </li>
           </ul>
         </div>
 
         <!-- CTA -->
         <div class="px-8 pb-8">
-          <a href="/contact" class="block w-full bg-brand-700 text-white text-center px-6 py-4 rounded-xl font-semibold hover:bg-brand-600 transition-all duration-300 shadow-md hover:shadow-lg text-sm tracking-wide">
+          <a href="/contact" class="block w-full bg-primary text-primary-foreground text-center px-6 py-4 rounded-xl font-semibold hover:bg-primary/90 transition-colors text-sm tracking-wide">
             Start Your Parish Website
           </a>
         </div>

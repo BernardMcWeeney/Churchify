@@ -2,54 +2,72 @@
 // src/components/index/Features.astro — Why Churchify
 ---
 
-<section class="py-20 md:py-28 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <p class="text-xs uppercase tracking-widest text-brand-500 mb-3 font-medium">Why Churchify</p>
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Built Differently</h2>
-      <p class="text-brand-800/60 max-w-2xl mx-auto text-lg leading-relaxed">We're not a generic website builder. Churchify is purpose-built for Catholic parishes.</p>
-    </div>
+<section class="py-20 md:py-28 bg-secondary/50">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-      <div class="text-center">
-        <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 mx-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-        </div>
-        <h3 class="font-heading font-bold mb-2">Built for Parishes</h3>
-        <p class="text-brand-800/60 text-sm leading-relaxed">Mass times, sacraments, notices — not generic blog templates.</p>
+      <!-- Image -->
+      <div class="rounded-2xl overflow-hidden shadow-xl">
+        <img src="/john-s-lane-church-inside-st-augustine-st-catholic-popularly-known-as-dublin-ireland-35101065.webp" alt="Inside a beautiful Irish church" class="w-full h-auto" />
       </div>
 
-      <div class="text-center">
-        <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 mx-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
+      <!-- Content -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Why Churchify</p>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Not a Generic Website Builder</h2>
+        <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Churchify is purpose-built for Catholic parishes. We understand Mass times, sacrament pages, parish bulletins, and liturgical seasons — because that's all we do.</p>
+
+        <div class="space-y-5">
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold mb-1">Built Specifically for Parishes</h3>
+              <p class="text-muted-foreground text-sm">Mass times, sacraments, notices, bulletins — not generic blog templates.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold mb-1">Daily Living Content</h3>
+              <p class="text-muted-foreground text-sm">Readings, feasts, saints, rosary — updated automatically every day.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold mb-1">Fully Managed Service</h3>
+              <p class="text-muted-foreground text-sm">Hosting, security, updates, backups — zero technical stress.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold mb-1">Affordable & Predictable</h3>
+              <p class="text-muted-foreground text-sm">€2,000 setup, €500/year. No surprises, no hidden fees.</p>
+            </div>
+          </div>
         </div>
-        <h3 class="font-heading font-bold mb-2">Fully Managed</h3>
-        <p class="text-brand-800/60 text-sm leading-relaxed">Hosting, security, updates, backups — zero stress for your staff.</p>
       </div>
 
-      <div class="text-center">
-        <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 mx-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-        </div>
-        <h3 class="font-heading font-bold mb-2">Living Content</h3>
-        <p class="text-brand-800/60 text-sm leading-relaxed">Daily readings, feast days, saints — a reason to visit every day.</p>
-      </div>
-
-      <div class="text-center">
-        <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mb-5 mx-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h3 class="font-heading font-bold mb-2">Affordable & Clear</h3>
-        <p class="text-brand-800/60 text-sm leading-relaxed">€500 per year. No surprises, no hidden fees. Budget with confidence.</p>
-      </div>
     </div>
   </div>
 </section>
