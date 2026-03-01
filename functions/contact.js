@@ -47,18 +47,41 @@ export async function onRequestPost(context) {
       });
     }
 
+    const region = context.env.AWS_REGION;
+    const accessKeyId = context.env.AWS_ACCESS_KEY_ID;
+    const secretAccessKey = context.env.AWS_SECRET_ACCESS_KEY;
+    const fromAddress = context.env.FROM_EMAIL_ADDRESS;
+    const toAddress = context.env.TO_EMAIL_ADDRESS;
+
+    if (!region || !accessKeyId || !secretAccessKey || !fromAddress || !toAddress) {
+      console.error('Missing env vars:', {
+        AWS_REGION: !!region,
+        AWS_ACCESS_KEY_ID: !!accessKeyId,
+        AWS_SECRET_ACCESS_KEY: !!secretAccessKey,
+        FROM_EMAIL_ADDRESS: !!fromAddress,
+        TO_EMAIL_ADDRESS: !!toAddress,
+      });
+      return new Response(JSON.stringify({
+        success: false,
+        message: 'Server configuration error. Please contact us directly at info@churchify.ie.'
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     const sesClient = new SESClient({
-      region: context.env.AWS_REGION,
+      region,
       credentials: {
-        accessKeyId: context.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: context.env.AWS_SECRET_ACCESS_KEY,
+        accessKeyId,
+        secretAccessKey,
       },
     });
 
     const emailParams = {
-      Source: context.env.FROM_EMAIL_ADDRESS,
+      Source: fromAddress,
       Destination: {
-        ToAddresses: [context.env.TO_EMAIL_ADDRESS],
+        ToAddresses: [toAddress],
       },
       Message: {
         Subject: {
@@ -103,11 +126,11 @@ Message: ${message}
     });
 
   } catch (error) {
-    console.error('Error processing form submission:', error);
+    console.error('Contact form error:', error?.name, error?.message, error?.stack);
 
     return new Response(JSON.stringify({
       success: false,
-      message: 'An error occurred while processing your request'
+      message: 'Something went wrong. Please try again or email us directly at info@churchify.ie.'
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
