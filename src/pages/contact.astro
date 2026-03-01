@@ -22,7 +22,7 @@ import Footer from '../components/Footer.astro';
         <div class="lg:w-2/3 bg-card rounded-2xl p-8 md:p-10 border border-border">
           <h2 class="text-2xl font-serif font-semibold mb-2">Send Us a Message</h2>
           <p class="text-muted-foreground mb-8">Fill out the form below and we'll be in touch shortly.</p>
-          <form id="contactForm" class="space-y-6" method="POST" action="/contact">
+          <form id="contactForm" class="space-y-6" method="POST" action="/api/contact">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-muted-foreground font-medium mb-2 text-sm">Name</label>
@@ -147,6 +147,9 @@ import Footer from '../components/Footer.astro';
 
         successMsg?.classList.add('hidden');
         errorMsg?.classList.add('hidden');
+        if (errorMsg) {
+          errorMsg.textContent = 'Something went wrong. Please try again or email us directly at info@churchify.ie.';
+        }
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
@@ -154,17 +157,24 @@ import Footer from '../components/Footer.astro';
         try {
           const formData = new FormData(form);
 
-          const response = await fetch('/contact', {
+          const response = await fetch('/api/contact', {
             method: 'POST',
             body: formData,
           });
 
-          const result = await response.json();
+          let result = { success: false, message: '' };
+          const contentType = response.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            result = await response.json();
+          }
 
-          if (result.success) {
+          if (response.ok && result.success) {
             successMsg?.classList.remove('hidden');
             form.reset();
           } else {
+            if (errorMsg && result.message) {
+              errorMsg.textContent = result.message;
+            }
             errorMsg?.classList.remove('hidden');
           }
         } catch {
