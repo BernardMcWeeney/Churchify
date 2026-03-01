@@ -62,7 +62,10 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <!-- Turnstile -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAWsI1fJREzBYF91" data-theme="light"></div>
+            <div id="turnstileContainer" class="cf-turnstile" data-sitekey="0x4AAAAAAAWsI1fJREzBYF91" data-theme="light" data-error-callback="onTurnstileError" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired"></div>
+            <div id="turnstileError" class="hidden p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-sm">
+              CAPTCHA failed to load. Please disable your ad blocker or try a different browser, then refresh the page.
+            </div>
 
             <div class="flex items-start">
               <input type="checkbox" id="consent" name="consent" class="mt-1 h-4 w-4 text-primary focus:ring-ring border-border rounded" required>
@@ -132,6 +135,17 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Layout>
 
+<script is:inline>
+  // Turnstile state
+  var turnstileReady = false;
+  function onTurnstileSuccess() { turnstileReady = true; }
+  function onTurnstileExpired() { turnstileReady = false; }
+  function onTurnstileError() {
+    turnstileReady = false;
+    var el = document.getElementById('turnstileError');
+    if (el) el.classList.remove('hidden');
+  }
+</script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
@@ -140,6 +154,7 @@ import Footer from '../components/Footer.astro';
     const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
     const successMsg = document.getElementById('formSuccess');
     const errorMsg = document.getElementById('formError');
+    const turnstileError = document.getElementById('turnstileError');
 
     if (form) {
       form.addEventListener('submit', async (e) => {
@@ -149,6 +164,12 @@ import Footer from '../components/Footer.astro';
         errorMsg?.classList.add('hidden');
         if (errorMsg) {
           errorMsg.textContent = 'Something went wrong. Please try again or email us directly at info@churchify.ie.';
+        }
+
+        // Check Turnstile before submitting
+        if (!(window as any).turnstileReady) {
+          turnstileError?.classList.remove('hidden');
+          return;
         }
 
         submitBtn.disabled = true;
@@ -171,6 +192,10 @@ import Footer from '../components/Footer.astro';
           if (response.ok && result.success) {
             successMsg?.classList.remove('hidden');
             form.reset();
+            (window as any).turnstileReady = false;
+            if (typeof (window as any).turnstile !== 'undefined') {
+              (window as any).turnstile.reset();
+            }
           } else {
             if (errorMsg && result.message) {
               errorMsg.textContent = result.message;
