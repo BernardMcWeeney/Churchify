@@ -6,16 +6,14 @@ import { parishTestimonials } from '../../data/parishes';
 
 const testimonials = parishTestimonials.map((item) => ({
   ...item,
+  meta: getImageMeta(item.image),
   rating: "rating" in item.testimonial ? item.testimonial.rating : undefined,
   source: "source" in item.testimonial ? item.testimonial.source : "Parish client"
 }));
 ---
 
 <section class="relative overflow-hidden bg-primary py-20 md:py-28">
-  <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -left-32 top-0 h-[32rem] w-[32rem] rounded-full bg-accent/10 blur-3xl"></div>
-    <div class="absolute -right-32 bottom-0 h-[32rem] w-[32rem] rounded-full bg-white/5 blur-3xl"></div>
-  </div>
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
 
   <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -28,10 +26,10 @@ const testimonials = parishTestimonials.map((item) => ({
       </div>
 
       <div class="flex gap-2">
-        <button type="button" data-testimonial-prev aria-label="Previous testimonial" class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:bg-white/10">
+        <button type="button" data-testimonial-prev aria-label="Previous testimonial" class="flex h-12 w-12 items-center justify-center rounded-sm border border-white/15 text-white transition-colors hover:bg-white/10">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
         </button>
-        <button type="button" data-testimonial-next aria-label="Next testimonial" class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:bg-white/10">
+        <button type="button" data-testimonial-next aria-label="Next testimonial" class="flex h-12 w-12 items-center justify-center rounded-sm border border-white/15 text-white transition-colors hover:bg-white/10">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>
@@ -40,16 +38,22 @@ const testimonials = parishTestimonials.map((item) => ({
     <div data-testimonial-track class="flex gap-6 overflow-x-auto scroll-smooth pb-2">
       {testimonials.map((item) => (
         <article data-testimonial-card class="min-w-[88%] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.07] backdrop-blur-sm md:min-w-[70%] lg:min-w-[calc(50%-0.75rem)]">
-          <div class="grid min-h-full grid-cols-1 sm:grid-cols-[0.4fr_0.6fr]">
-            <div class="relative min-h-[200px]">
+          <div class="grid min-h-full grid-cols-1 sm:grid-cols-[0.38fr_0.62fr]">
+            <div class="relative min-h-[220px]">
               <img
-                src={`/parishes/screenshots/${item.url.split('/').filter(Boolean).pop()}.webp`}
-                alt={`${item.parish} website`}
-                class="absolute inset-0 h-full w-full object-cover object-top"
+                src={item.image}
+                alt={item.alt}
+                class="absolute inset-0 h-full w-full object-cover"
+                width={item.meta?.width}
+                height={item.meta?.height}
                 loading="lazy"
                 decoding="async"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent sm:bg-gradient-to-r"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/65 via-primary/10 to-transparent sm:bg-gradient-to-r"></div>
+              <div class="absolute inset-x-0 bottom-0 p-4 sm:hidden">
+                <p class="font-serif text-lg font-bold text-white">{item.parish}</p>
+                <p class="text-xs font-semibold uppercase tracking-wider text-accent-light">{item.location}</p>
+              </div>
             </div>
 
             <div class="flex flex-col p-7 md:p-9">
@@ -61,7 +65,7 @@ const testimonials = parishTestimonials.map((item) => ({
                     ))}
                   </div>
                 )}
-                <span class="rounded-full border border-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground/70">{item.source}</span>
+                <span class="rounded-sm border border-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground/70">{item.source}</span>
               </div>
 
               <blockquote class="mt-5 flex-1 font-serif text-lg leading-snug text-white md:text-xl">

@@ -9,7 +9,7 @@ export const showcaseParishes = [
     alt: "Nativity of Our Lady Church in Donore",
     highlights: ["Daily content", "Donations", "Mass times"],
     summary:
-      "A modern parish site with clear Mass information, online donations, parish news, newsletters and daily liturgical content.",
+      "A clear parish site with Mass information, online donations, parish news, newsletters and daily liturgical content.",
     caseStudy: {
       quote:
         "Many parishioners have complimented the website design and how easy the website is to use.",
@@ -95,7 +95,7 @@ export const showcaseParishes = [
     },
     testimonial: {
       quote:
-        "Bohermeen Parish needed a modern website that would truly work for the parish and its community. From design to launch, every stage was handled professionally and efficiently. The finished website is easy to navigate, simple to manage, and provides parishioners with quick access to important information and updates.",
+        "Bohermeen Parish needed a dependable website that would truly work for the parish and its community. From design to launch, every stage was handled professionally and efficiently. The finished website is easy to navigate, simple to manage, and provides parishioners with quick access to important information and updates.",
       author: "Bohermeen Parish",
       role: "Verified client",
       rating: 5,
@@ -125,7 +125,7 @@ export const showcaseParishes = [
         "Provide a structure that works well on mobile phones."
       ],
       outcome: [
-        "A modern parish site for day-to-day parish information.",
+        "A clear parish site for day-to-day parish information.",
         "Easy paths to donations, notices and livestream details.",
         "A mobile-friendly experience for parishioners on the move."
       ]
@@ -247,7 +247,7 @@ export const showcaseParishes = [
       "A polished parish website with Mass times, daily readings, parish information, sacrament pages and local news.",
     caseStudy: {
       quote:
-        "St. Mary's needed a site that respected a beautiful church while making daily parish information clear and modern.",
+        "St. Mary's needed a site that respected a beautiful church while making daily parish information clear and easy to reach.",
       quoteBy: "Churchify project note",
       background:
         "St. Mary's Drogheda needed a polished parish website that could carry rich parish imagery, daily content and practical information.",
@@ -282,7 +282,9 @@ const hasTestimonial = (parish: ShowcaseParish): parish is ParishWithTestimonial
 
 export const parishTestimonials = showcaseParishes.filter(hasTestimonial).map((parish) => ({
     parish: parish.name,
+    location: parish.location,
     image: parish.image,
+    alt: parish.alt,
     url: `/parishes/${parish.slug}/`,
     testimonial: parish.testimonial
   }));

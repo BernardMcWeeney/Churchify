@@ -2,10 +2,10 @@ export const platformFeatures = [
   {
     slug: "fast-beautiful-design",
     title: "Fast, Beautiful Design",
-    eyebrow: "Modern",
+    eyebrow: "Design",
     description: "Mobile-first parish websites that look polished, load quickly and make the important information easy to find.",
     summary:
-      "We design every parish site to feel calm, modern and fast, with clear paths to Mass times, notices, donations, livestream and parish information.",
+      "We design every parish site to feel calm, clear and fast, with direct paths to Mass times, notices, donations, livestream and parish information.",
     valueTitle: "A parish website should make people feel oriented straight away.",
     valueCopy:
       "When someone lands on the site, they should know where to tap for Mass times, notices, contact details, donations or livestream. A polished design builds trust, but the real win is clarity.",

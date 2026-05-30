@@ -81,9 +81,9 @@ const caseStudySchema = {
         <figure>
           <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
             <div class="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-3">
-              <span class="h-2.5 w-2.5 rounded-full bg-[#D56B5D]"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-[#5E8E6E]"></span>
+              <span class="h-2.5 w-2.5 rounded-sm bg-[#D56B5D]"></span>
+              <span class="h-2.5 w-2.5 rounded-sm bg-accent"></span>
+              <span class="h-2.5 w-2.5 rounded-sm bg-[#5E8E6E]"></span>
               <span class="ml-2 text-[11px] font-medium text-muted-foreground">{parish.domain}</span>
             </div>
             <img
@@ -107,7 +107,7 @@ const caseStudySchema = {
 
           <div class="mt-6 flex flex-wrap gap-2">
             {parish.highlights.map((highlight) => (
-              <span class="rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold text-foreground">{highlight}</span>
+              <span class="rounded-sm bg-secondary px-3 py-1.5 text-xs font-semibold text-foreground">{highlight}</span>
             ))}
           </div>
 
@@ -137,7 +137,7 @@ const caseStudySchema = {
         <span class="text-accent">“</span>{quoteText}<span class="text-accent">”</span>
       </blockquote>
       <div class="mt-8 flex items-center justify-center gap-4">
-        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary-light to-primary font-serif text-sm font-bold text-white">{quoteInitials}</div>
+        <div class="flex h-12 w-12 items-center justify-center rounded-sm bg-primary font-serif text-sm font-bold text-white">{quoteInitials}</div>
         <div class="text-left">
           <p class="font-serif font-bold text-foreground">{quoteAuthor}</p>
           {quoteRole && <p class="text-sm text-muted-foreground">{quoteRole}</p>}
@@ -170,7 +170,7 @@ const caseStudySchema = {
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-border bg-gradient-to-br from-primary-light to-primary p-8 text-primary-foreground shadow-card">
+        <div class="rounded-2xl border border-border bg-primary p-8 text-primary-foreground shadow-card">
           <Eyebrow tone="dark">Outcome</Eyebrow>
           <ul class="mt-6 space-y-4">
             {parish.caseStudy.outcome.map((item) => (
@@ -191,7 +191,6 @@ const caseStudySchema = {
   <section class="pb-20 md:pb-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-14 shadow-card md:px-14 md:py-16">
-        <div class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl"></div>
         <div class="relative max-w-3xl">
           <Eyebrow>Churchify pattern</Eyebrow>
           <h2 class="mt-6 font-serif text-3xl font-bold md:text-4xl">The same foundations can be adapted for your parish.</h2>
