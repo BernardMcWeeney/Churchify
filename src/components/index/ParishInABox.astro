@@ -1,89 +1,75 @@
 ---
-// src/components/index/ParishInABox.astro — Pricing Section
+// src/components/index/ParishInABox.astro
+interface Props {
+  showIntro?: boolean;
+}
+
+const { showIntro = true } = Astro.props;
+
+const included = [
+  "Custom design & build",
+  "Daily liturgical content",
+  "Mass times & bulletins",
+  "Stripe donations setup",
+  "Livestream integration",
+  "Social media automation",
+  "Email newsletter setup",
+  "Hosting, updates & support"
+];
 ---
 
 <section class="py-20 md:py-28 bg-secondary/50">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Pricing</p>
-      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Simple, Transparent Pricing</h2>
-      <p class="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">One product. One price. Design, build, content setup, hosting, security, updates and support — everything included.</p>
-    </div>
+    {showIntro && (
+      <div class="mb-12 text-center">
+        <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Pricing</p>
+        <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Simple, transparent pricing.</h2>
+        <p class="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">One managed parish website package with the important parish features included.</p>
+      </div>
+    )}
 
-    <div class="max-w-md mx-auto">
-      <div class="bg-card rounded-2xl shadow-xl overflow-hidden border border-border">
-        <!-- Header -->
-        <div class="bg-primary px-8 py-8 text-center">
-          <h3 class="text-lg font-serif font-bold mb-1 text-primary-foreground">Complete Parish Website</h3>
-          <p class="text-primary-foreground/60 text-sm">Everything included. Nothing extra.</p>
-        </div>
-
-        <!-- Pricing -->
-        <div class="px-8 py-8 text-center border-b border-border">
-          <div class="mb-3">
-            <span class="text-5xl font-serif font-bold">€2,000</span>
-            <span class="text-muted-foreground ml-1 text-sm">once-off setup</span>
+    <div class="overflow-hidden rounded-lg border border-border bg-card shadow-xl shadow-primary/5">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.3fr_0.8fr]">
+        <div class="bg-primary p-8 md:p-10 text-primary-foreground">
+          <p class="text-xs uppercase tracking-widest text-accent font-semibold">Complete Parish Website</p>
+          <div class="mt-7">
+            <p class="font-serif text-5xl font-bold">€2,000</p>
+            <p class="mt-2 text-sm text-primary-foreground/65">once-off setup</p>
           </div>
-          <div class="text-muted-foreground">
-            then <span class="text-2xl font-serif font-bold text-foreground">€500</span> <span class="text-muted-foreground text-sm">per year</span>
+          <div class="mt-6 rounded-lg border border-white/10 bg-white/5 p-4">
+            <p class="font-serif text-2xl font-bold">€500 <span class="font-sans text-sm font-medium text-primary-foreground/65">per year</span></p>
+            <p class="mt-1 text-xs text-primary-foreground/55">First year total: €2,500</p>
           </div>
-          <p class="text-xs text-muted-foreground mt-3">First year total: €2,500</p>
         </div>
 
-        <!-- What's included -->
-        <div class="px-8 py-8">
-          <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-5">Everything included:</p>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">Custom design & build</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">Content setup & migration</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">Daily liturgical content</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">Hosting, security & backups</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">Domain renewal & DNS</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">WordPress updates & maintenance</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-muted-foreground text-sm">Training, documentation & support</span>
-            </li>
-          </ul>
+        <div class="p-8 md:p-10">
+          <h3 class="font-serif text-2xl font-bold">Everything included from day one.</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Design, setup, technical care and ongoing support are bundled together so there are no surprise website management costs.</p>
+
+          <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {included.map((item) => (
+              <div class="flex items-center gap-3">
+                <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <span class="text-sm font-medium text-muted-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <!-- CTA -->
-        <div class="px-8 pb-8">
-          <a href="/contact" class="block w-full bg-primary text-primary-foreground text-center px-6 py-4 rounded-xl font-semibold hover:bg-primary/90 transition-colors text-sm tracking-wide">
-            Start Your Parish Website
-          </a>
+        <div class="flex flex-col justify-between border-t border-border p-8 md:p-10 lg:border-l lg:border-t-0">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-accent font-semibold">Managed for you</p>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">We stay with your parish after launch for updates, support, backups, security and ongoing care.</p>
+          </div>
+          <div class="mt-8 space-y-3">
+            <a href="/contact/" class="block rounded-lg bg-primary px-6 py-4 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+              Start Your Parish Website
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -4,14 +4,36 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Footer from '../components/Footer.astro';
+
+const pageDescription =
+  "Contact Churchify to start a managed Catholic parish website with Mass times, notices, donations, livestreams, daily content and support.";
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Churchify",
+  description: pageDescription,
+  url: "https://churchify.ie/contact/"
+};
 ---
 
-<Layout title="Contact — Churchify">
+<Layout
+  title="Contact Churchify | Start Your Parish Website"
+  description={pageDescription}
+  ogImage="/parishes/donore-church.webp"
+  ogImageAlt="Donore parish church used by Churchify"
+  schema={contactSchema}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Contact Churchify", url: "/contact/" }
+  ]}
+>
   <Header />
 
   <PageHeader
     title="Get in Touch"
     tagline="Ready to bring your parish online? We'd love to hear from you."
+    image="/parishes/donore-church.webp"
   />
 
   <!-- Contact Section -->

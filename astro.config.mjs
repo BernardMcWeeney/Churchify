@@ -9,6 +9,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://churchify.ie',
+  trailingSlash: 'always',
   integrations: [sitemap()],
 });
-

@@ -1,16 +1,29 @@
 ---
 // src/components/PageHeader.astro
+import { getImageMeta } from '../data/imageMeta';
+
 interface Props {
   title: string;
   tagline: string;
+  image?: string;
+  imageAlt?: string;
 }
 
-const { title, tagline } = Astro.props;
+const { title, tagline, image = "/parishes/st-marys-altar.jpg", imageAlt = "" } = Astro.props;
+const meta = getImageMeta(image);
 ---
 
 <section class="relative overflow-hidden py-24 md:py-32">
   <div class="absolute inset-0 z-0">
-    <img src="/st-patricks-cathedral.webp" alt="" class="w-full h-full object-cover" />
+    <img
+      src={image}
+      alt={imageAlt}
+      class="w-full h-full object-cover"
+      width={meta?.width}
+      height={meta?.height}
+      decoding="async"
+      fetchpriority="high"
+    />
     <div class="absolute inset-0 bg-primary/90"></div>
   </div>
 

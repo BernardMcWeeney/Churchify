@@ -1,28 +1,24 @@
 ---
 // src/components/index/TrustStrip.astro
+import { trustPartners } from '../../data/parishes';
 ---
 
-<section class="py-16 border-y border-border">
+<section class="py-14 border-y border-border bg-card/30">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <p class="text-center text-xs font-medium tracking-widest uppercase text-muted-foreground mb-10">
-      Trusted by parishes across Ireland
+    <p class="text-center text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-8">
+      Trusted by Catholic parishes across Ireland
     </p>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-      <div class="flex items-center justify-center">
-        <p class="font-serif text-sm font-semibold text-muted-foreground/60 text-center leading-tight">St. Mary's<br>Drogheda</p>
-      </div>
-      <div class="flex items-center justify-center">
-        <p class="font-serif text-sm font-semibold text-muted-foreground/60 text-center leading-tight">Duleek &<br>Bellewstown</p>
-      </div>
-      <div class="flex items-center justify-center">
-        <p class="font-serif text-sm font-semibold text-muted-foreground/60 text-center leading-tight">Donore &<br>Rossnaree</p>
-      </div>
-      <div class="flex items-center justify-center">
-        <p class="font-serif text-sm font-semibold text-muted-foreground/60 text-center leading-tight">Holy Family<br>Drogheda</p>
-      </div>
-      <div class="flex items-center justify-center">
-        <p class="font-serif text-sm font-semibold text-muted-foreground/60 text-center leading-tight">Bohermeen<br>Parish</p>
-      </div>
+    <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-8">
+      {trustPartners.map((partner) => (
+        <a
+          href={partner.url}
+          target={partner.external ? "_blank" : undefined}
+          rel={partner.external ? "noopener noreferrer" : undefined}
+          class="flex min-h-20 items-center justify-center rounded-lg border border-border bg-background px-3 py-4 text-center transition-colors hover:border-accent hover:bg-card"
+        >
+          <span class="font-serif text-sm font-bold leading-tight text-muted-foreground">{partner.name}</span>
+        </a>
+      ))}
     </div>
   </div>
 </section>

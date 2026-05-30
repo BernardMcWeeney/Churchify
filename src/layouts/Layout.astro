@@ -1,39 +1,87 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
+import { getImageMeta } from '../data/imageMeta';
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogType?: string;
+  keywords?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbs?: { name: string; url: string }[];
+  noindex?: boolean;
 }
 
 const {
   title,
-  description = "Churchify builds beautiful, practical parish websites. Daily liturgical content, Mass times, donations, livestream — fully managed from €500/year.",
-  ogImage = "/og-default.png"
+  description = "Churchify builds beautiful, practical parish websites with Mass times, notices, donations, livestream integration and daily liturgical content, fully managed for Catholic parishes in Ireland.",
+  ogImage = "/parishes/st-marys-altar.jpg",
+  ogImageAlt = "Churchify parish website design for Catholic parishes in Ireland",
+  ogType = "website",
+  keywords = "parish website design Ireland, Catholic parish websites, church website design, Mass times website, parish donations Stripe, parish livestream integration, parish bulletin website",
+  schema,
+  breadcrumbs = [],
+  noindex = false
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteURL = Astro.site ?? new URL("https://churchify.ie");
+const canonicalPathname = Astro.url.pathname === "/" ? "/" : `${Astro.url.pathname.replace(/\/$/, "")}/`;
+const canonicalURL = new URL(canonicalPathname, siteURL);
+const absoluteOgImage = new URL(ogImage, siteURL);
+const ogImageMeta = getImageMeta(ogImage);
+const robotsContent = noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large";
+const googlebotContent = noindex
+  ? "noindex, nofollow"
+  : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+const breadcrumbSchema = breadcrumbs.length > 1
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbs.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: new URL(item.url, siteURL).toString()
+      }))
+    }
+  : null;
+const schemaPayloads = [
+  ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+  ...(breadcrumbSchema ? [breadcrumbSchema] : [])
+];
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-IE" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en-IE" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Churchify" />
+    <meta name="publisher" content="Churchify" />
     <title>{title}</title>
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:secure_url" content={absoluteOgImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    {ogImageMeta && <meta property="og:image:type" content={ogImageMeta.type} />}
+    {ogImageMeta && <meta property="og:image:width" content={ogImageMeta.width} />}
+    {ogImageMeta && <meta property="og:image:height" content={ogImageMeta.height} />}
     <meta property="og:site_name" content="Churchify" />
     <meta property="og:locale" content="en_IE" />
 
@@ -42,15 +90,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- Additional SEO -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robotsContent} />
+    <meta name="googlebot" content={googlebotContent} />
     <meta name="theme-color" content="#1B2A4A" />
+    <meta name="format-detection" content="telephone=no" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    {schemaPayloads.map((payload) => (
+      <script type="application/ld+json" set:html={JSON.stringify(payload)}></script>
+    ))}
   </head>
   <body>
     <div class="min-h-screen flex flex-col">

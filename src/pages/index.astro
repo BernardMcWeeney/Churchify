@@ -7,13 +7,96 @@ import TrustStrip from '../components/index/TrustStrip.astro';
 import Services from '../components/index/Services.astro';
 import Features from '../components/index/Features.astro';
 import HowItWorks from '../components/index/HowItWorks.astro';
+import Portfolio from '../components/index/Portfolio.astro';
 import ParishInABox from '../components/index/ParishInABox.astro';
 import Testimonial from '../components/index/Testimonial.astro';
 import Cta from '../components/index/Cta.astro';
 import Footer from '../components/Footer.astro';
+import { platformFeatures } from '../data/features';
+import { showcaseParishes } from '../data/parishes';
+
+const pageDescription =
+  "Churchify designs, builds and manages Catholic parish websites in Ireland with Mass times, notices, bulletins, donations, livestreams and daily content.";
+
+const homeSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Churchify",
+    url: "https://churchify.ie/",
+    logo: "https://churchify.ie/logo.png",
+    areaServed: {
+      "@type": "Country",
+      name: "Ireland"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Churchify",
+    url: "https://churchify.ie/",
+    description: pageDescription,
+    inLanguage: "en-IE"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Managed Catholic parish website design",
+    serviceType: "Parish website design, development and management",
+    provider: {
+      "@type": "Organization",
+      name: "Churchify",
+      url: "https://churchify.ie/"
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Ireland"
+    },
+    audience: {
+      "@type": "Audience",
+      audienceType: "Catholic parishes"
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "EUR",
+      price: "2000",
+      description: "Once-off setup from €2,000, then €500 per year for hosting, support, updates and management.",
+      url: "https://churchify.ie/pricing/"
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Churchify parish website features",
+      itemListElement: platformFeatures.map((feature) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: feature.title,
+          url: `https://churchify.ie/features/${feature.slug}/`
+        }
+      }))
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Churchify parish website showcase",
+    itemListElement: showcaseParishes.map((parish, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://churchify.ie/parishes/${parish.slug}/`,
+      name: parish.name
+    }))
+  }
+];
 ---
 
-<Layout title="Churchify — The Modern Parish Website Platform">
+<Layout
+  title="Churchify | Modern Catholic Parish Websites in Ireland"
+  description={pageDescription}
+  ogImage="/parishes/st-marys-altar.jpg"
+  ogImageAlt="A Churchify parish website showcase featuring St. Mary's Parish Drogheda"
+  schema={homeSchema}
+>
   <Header />
 
   <Hero />
@@ -26,6 +109,9 @@ import Footer from '../components/Footer.astro';
 
   <!-- Why Churchify -->
   <Features />
+
+  <!-- Parish Showcase -->
+  <Portfolio />
 
   <!-- How It Works -->
   <HowItWorks />

@@ -1,0 +1,213 @@
+---
+// src/pages/features/index.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { platformFeatures } from '../../data/features';
+
+type Feature = (typeof platformFeatures)[number];
+type FeatureSlug = Feature["slug"];
+
+const featureBySlug = Object.fromEntries(
+  platformFeatures.map((feature) => [feature.slug, feature])
+) as Record<FeatureSlug, Feature>;
+
+const featureGroups = [
+  {
+    eyebrow: "Parish Essentials",
+    title: "The information people look for every week.",
+    description:
+      "Mass times, notices, bulletins and daily Catholic content are kept close to the surface, especially on mobile.",
+    image: "/parishes/donore-church.webp",
+    features: [
+      featureBySlug["mass-times"],
+      featureBySlug["notices-and-bulletin"],
+      featureBySlug["daily-liturgical-content"]
+    ]
+  },
+  {
+    eyebrow: "Communication",
+    title: "Publish once, then help the update travel.",
+    description:
+      "Parish updates can be written for the website first, then supported through email, social channels and livestream access.",
+    image: "/parishes/duleek-aerial.webp",
+    features: [
+      featureBySlug["livestream-integration"],
+      featureBySlug["social-media-integration"],
+      featureBySlug["email-newsletter"]
+    ]
+  },
+  {
+    eyebrow: "Managed Platform",
+    title: "A polished website without parish-office stress.",
+    description:
+      "Churchify handles the design, editing setup, donations flow, hosting, updates, backups and day-to-day technical care.",
+    image: "/parishes/st-marys-altar.jpg",
+    features: [
+      featureBySlug["fast-beautiful-design"],
+      featureBySlug["easy-to-edit"],
+      featureBySlug["online-donations"],
+      featureBySlug["fully-managed-support"]
+    ]
+  }
+];
+
+const pageDescription =
+  "See everything included with Churchify: modern parish website design, easy editing, fully managed support, Mass times, parish notices, bulletins, Stripe donations, livestream integration and daily liturgical content.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Complete managed parish website",
+  serviceType: "Catholic parish website design and management",
+  description: pageDescription,
+  url: "https://churchify.ie/features/",
+  provider: {
+    "@type": "Organization",
+    name: "Churchify",
+    url: "https://churchify.ie/"
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Ireland"
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "2000",
+    description: "€2,000 once-off setup, then €500 per year ongoing.",
+    url: "https://churchify.ie/pricing/"
+  }
+};
+---
+
+<Layout
+  title="Parish Website Features & Managed Support | Churchify"
+  description={pageDescription}
+  ogImage="/parishes/bohermeen-church.webp"
+  ogImageAlt="Bohermeen parish church used in Churchify website feature pages"
+  schema={serviceSchema}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Features", url: "/features/" }
+  ]}
+>
+  <Header />
+
+  <PageHeader
+    title="The Complete Parish Website"
+    tagline="Everything your parish needs online, designed, built and managed for you. One clear product, one calm workflow."
+    image="/parishes/bohermeen-church.webp"
+  />
+
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">What's Included</p>
+          <h2 class="font-serif text-3xl font-bold md:text-5xl">Built around the weekly rhythm of parish life.</h2>
+        </div>
+        <div class="grid gap-4 text-lg leading-relaxed text-muted-foreground">
+          <p>
+            Churchify is a complete parish website system rather than a generic brochure site. The structure is shaped around Mass, sacraments, notices, bulletins, giving, livestream and pastoral communication.
+          </p>
+          <p>
+            Each feature has its own page below, but the important point is how they work together: parishioners can find what they need quickly, while your team has a simpler way to keep the website current.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {featureGroups.map((group, index) => (
+    <section class={index % 2 === 0 ? "bg-secondary/50 py-20 md:py-24" : "py-20 md:py-24"}>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
+          <div class="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+            <img
+              src={group.image}
+              alt=""
+              class="aspect-[4/3] w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-widest text-accent">{group.eyebrow}</p>
+              <h2 class="mt-3 font-serif text-3xl font-bold">{group.title}</h2>
+              <p class="mt-4 leading-relaxed text-muted-foreground">{group.description}</p>
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            {group.features.map((feature) => (
+              <a href={`/features/${feature.slug}/`} class="group rounded-lg border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5">
+                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon} />
+                  </svg>
+                </div>
+                <p class="text-[11px] font-semibold uppercase tracking-widest text-accent">{feature.eyebrow}</p>
+                <h3 class="mt-2 font-serif text-xl font-bold">{feature.title}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  {feature.proof.map((proof) => (
+                    <span class="rounded-md bg-muted px-2.5 py-1 text-[11px] font-semibold text-foreground">{proof}</span>
+                  ))}
+                </div>
+                <span class="mt-5 inline-flex items-center text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                  View feature
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="border-y border-border bg-card py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">Getting Started</p>
+        <h2 class="font-serif text-3xl font-bold md:text-4xl">Three steps to a managed parish website.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {[
+          ["1", "We Talk", "Tell us about your parish, your current website and the information parishioners need most."],
+          ["2", "We Build", "We design the website, organise the content, configure the parish features and prepare launch."],
+          ["3", "You Go Live", "Your team is trained, the site goes live and Churchify stays with you for hosting and support."]
+        ].map(([number, title, copy]) => (
+          <article class="rounded-lg border border-border bg-background p-6">
+            <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-primary font-serif text-xl font-bold text-primary-foreground">{number}</span>
+            <h3 class="mt-5 font-serif text-xl font-bold">{title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden py-20 md:py-24">
+    <div class="absolute inset-0 z-0">
+      <img src="/parishes/st-marys-altar.jpg" alt="" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+      <div class="absolute inset-0 bg-primary/90"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 text-center lg:px-8">
+      <h2 class="font-serif text-3xl font-bold text-white md:text-5xl">Ready to get your parish online?</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
+        Design, build, hosting, security, updates and support are included in one managed Churchify package.
+      </p>
+      <a href="/contact/" class="mt-9 inline-flex rounded-lg bg-accent px-8 py-4 font-semibold text-foreground shadow-lg transition-colors hover:bg-accent/90">
+        Get Your Parish Online
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

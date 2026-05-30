@@ -7,14 +7,36 @@ import Values from '../components/about/Values.astro';
 import Mission from '../components/about/Mission.astro';
 import Story from '../components/about/Story.astro';
 import Footer from '../components/Footer.astro';
+
+const pageDescription =
+  "Learn about Churchify, a managed parish website service for Catholic parishes in Ireland, with modern design, easy editing and support.";
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Churchify",
+  description: pageDescription,
+  url: "https://churchify.ie/about/"
+};
 ---
 
-<Layout title="About — Churchify">
+<Layout
+  title="About Churchify | Managed Parish Website Specialists"
+  description={pageDescription}
+  ogImage="/parishes/duleek-aerial.webp"
+  ogImageAlt="Duleek parish church aerial image used by Churchify"
+  schema={aboutSchema}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "About Churchify", url: "/about/" }
+  ]}
+>
   <Header />
 
   <PageHeader
     title="About Churchify"
     tagline="One product. One audience. One promise. We build the modern parish website."
+    image="/parishes/duleek-aerial.webp"
   />
 
   <Story />
@@ -26,13 +48,13 @@ import Footer from '../components/Footer.astro';
   <!-- CTA Section -->
   <section class="py-24 relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="/st-patricks-cathedral.webp" alt="" class="w-full h-full object-cover" />
+      <img src="/parishes/holy-family-church.webp" alt="" class="w-full h-full object-cover" width="960" height="960" loading="lazy" decoding="async" />
       <div class="absolute inset-0 bg-primary/90"></div>
     </div>
     <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
       <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white">Ready to Give Your Parish a Modern Home Online?</h2>
       <p class="text-xl mb-10 max-w-3xl mx-auto text-white/80 leading-relaxed">€2,000 setup. €500 per year. Everything included.</p>
-      <a href="/contact" class="bg-accent text-foreground px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-accent/90 hover:shadow-xl transition-all duration-300 inline-block">Contact Our Team</a>
+      <a href="/contact/" class="bg-accent text-foreground px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-accent/90 hover:shadow-xl transition-all duration-300 inline-block">Contact Our Team</a>
     </div>
   </section>
 

@@ -1,0 +1,17 @@
+{
+  "name": "Churchify",
+  "short_name": "Churchify",
+  "description": "Managed Catholic parish website design and support for parishes in Ireland.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F5EF",
+  "theme_color": "#1B2A4A",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

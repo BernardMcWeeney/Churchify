@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getImageMeta } from '../../data/imageMeta';
+import { showcaseParishes } from '../../data/parishes';
+
+export function getStaticPaths() {
+  return showcaseParishes.map((parish) => ({
+    params: { slug: parish.slug },
+    props: { parish }
+  }));
+}
+
+const { parish } = Astro.props;
+const parishTestimonial = "testimonial" in parish ? parish.testimonial : null;
+const quoteText = parishTestimonial?.quote ?? parish.caseStudy.quote;
+const quoteAuthor = parishTestimonial?.author ?? parish.caseStudy.quoteBy;
+const quoteRole = parishTestimonial?.role ?? "";
+const quoteRating = parishTestimonial
+  ? ("rating" in parishTestimonial ? parishTestimonial.rating : 5)
+  : undefined;
+const quoteSource = parishTestimonial
+  ? ("source" in parishTestimonial ? parishTestimonial.source : "Verified Client")
+  : "Case study note";
+const quoteHighlights = parishTestimonial && "highlights" in parishTestimonial ? parishTestimonial.highlights : [];
+const quoteInitials = quoteAuthor
+  .split(/[,\s]+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((part) => part.charAt(0).toUpperCase())
+  .join("");
+
+const pageDescription = `${parish.name} website case study by Churchify, showing a managed parish site with ${parish.highlights.join(", ").toLowerCase()}.`;
+const pageUrl = `https://churchify.ie/parishes/${parish.slug}/`;
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: `${parish.name} website case study`,
+  description: pageDescription,
+  url: pageUrl,
+  image: `https://churchify.ie${parish.image}`,
+  about: {
+    "@type": "WebSite",
+    name: parish.name,
+    url: parish.url
+  }
+};
+---
+
+<Layout
+  title={`${parish.name} Website Case Study | Churchify`}
+  description={pageDescription}
+  ogImage={parish.image}
+  ogImageAlt={parish.alt}
+  schema={caseStudySchema}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Parish Website Showcase", url: "/parishes/" },
+    { name: parish.name, url: `/parishes/${parish.slug}/` }
+  ]}
+>
+  <Header />
+
+  <PageHeader
+    title={parish.name}
+    tagline={parish.summary}
+    image={parish.image}
+    imageAlt={parish.alt}
+  />
+
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <aside>
+          <div class="sticky top-28 overflow-hidden rounded-lg border border-border bg-card shadow-xl shadow-primary/5">
+            <img
+              src={parish.image}
+              alt={parish.alt}
+              class="aspect-[4/3] w-full object-cover"
+              width={getImageMeta(parish.image)?.width}
+              height={getImageMeta(parish.image)?.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-6">
+              <p class="text-xs uppercase tracking-widest text-accent font-semibold">{parish.location}</p>
+              <h2 class="mt-2 font-serif text-2xl font-bold">{parish.name}</h2>
+              <p class="mt-1 text-sm font-medium text-accent">{parish.domain}</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {parish.highlights.map((highlight) => (
+                  <span class="rounded-md bg-muted px-2.5 py-1 text-[11px] font-semibold text-foreground">{highlight}</span>
+                ))}
+              </div>
+              <div class="mt-6 grid grid-cols-1 gap-3">
+                <a href={parish.url} target="_blank" rel="noopener noreferrer" class="rounded-lg bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+                  Visit Live Website
+                </a>
+                <a href="/parishes/" class="rounded-lg border border-border px-6 py-3 text-center text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
+                  Back to Showcase
+                </a>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div>
+          <div class="rounded-lg border border-border bg-card p-7 shadow-sm md:p-10">
+            <div class="flex flex-wrap items-center gap-3">
+              {quoteRating && (
+                <div class="flex gap-1 text-accent" aria-label={`${quoteRating} star review`}>
+                  {Array.from({ length: quoteRating }).map(() => (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81H7.03a1 1 0 00.95-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              )}
+              <span class="rounded-md bg-accent/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
+                {quoteSource}
+              </span>
+            </div>
+
+            <div class="mt-8 text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+            </div>
+
+            <blockquote class="mt-5 font-serif text-2xl font-bold leading-tight text-foreground md:text-3xl">
+              {quoteText}
+            </blockquote>
+
+            {quoteHighlights.length > 0 && (
+              <ul class="mt-6 grid gap-3 border-t border-border pt-6 sm:grid-cols-3">
+                {quoteHighlights.map((highlight) => (
+                  <li class="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                    <span class="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded bg-accent/10 text-accent">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div class="mt-7 flex items-center gap-4 border-t border-border pt-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary font-serif text-sm font-bold text-primary-foreground">
+                {quoteInitials}
+              </div>
+              <div>
+                <p class="font-serif text-lg font-bold text-foreground">{quoteAuthor}</p>
+                {quoteRole && <p class="text-sm font-medium text-muted-foreground">{quoteRole}</p>}
+                <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-accent">{parish.name}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 space-y-10">
+            <section>
+              <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Background</p>
+              <h2 class="font-serif text-3xl font-bold">What this parish needed online</h2>
+              <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{parish.caseStudy.background}</p>
+            </section>
+
+            <section class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div class="rounded-lg border border-border bg-card p-6">
+                <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Approach</p>
+                <ul class="space-y-4">
+                  {parish.caseStudy.approach.map((item) => (
+                    <li class="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="rounded-lg border border-border bg-card p-6">
+                <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Outcome</p>
+                <ul class="space-y-4">
+                  {parish.caseStudy.outcome.map((item) => (
+                    <li class="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            <section class="rounded-lg border border-border bg-secondary/50 p-8">
+              <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Churchify Pattern</p>
+              <h2 class="font-serif text-3xl font-bold">The same foundations can be adapted for your parish.</h2>
+              <p class="mt-4 text-muted-foreground leading-relaxed">
+                Every parish has its own people, churches, imagery and priorities. Churchify keeps the core system consistent while shaping the design, content and navigation around the actual parish community.
+              </p>
+              <a href="/contact/" class="mt-7 inline-flex rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+                Talk About Your Parish
+              </a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
