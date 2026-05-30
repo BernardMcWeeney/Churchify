@@ -1,62 +1,58 @@
 ---
 // src/components/index/Portfolio.astro
+import Eyebrow from '../Eyebrow.astro';
 import { getImageMeta } from '../../data/imageMeta';
 import { showcaseParishes } from '../../data/parishes';
+
+const featured = showcaseParishes.slice(0, 6);
 ---
 
-<section class="py-20 md:py-28 bg-secondary/50">
+<section class="py-20 md:py-28">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
       <div class="max-w-3xl">
-        <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Showcase</p>
-        <h2 class="text-3xl md:text-5xl font-serif font-bold mb-5">Real parish websites, real parish content.</h2>
-        <p class="text-muted-foreground text-lg leading-relaxed">
-          These are live parish websites using the kind of structure Churchify brings together: clear navigation, local imagery, daily content, livestream, donations, notices and Mass times.
+        <Eyebrow>Showcase</Eyebrow>
+        <h2 class="mt-6 font-serif text-3xl font-bold md:text-5xl">Real parish websites, real parish content.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
+          Live parish websites built and managed by Churchify — clear navigation, local imagery, daily content, livestream, donations, notices and Mass times.
         </p>
       </div>
-      <a href="/parishes/" class="inline-flex items-center justify-center rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-background">
-        View Full Showcase
-      </a>
+      <a href="/parishes/" class="btn btn-outline btn-sm shrink-0 self-start lg:self-auto">View full showcase</a>
     </div>
 
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {showcaseParishes.map((parish) => (
-        <article class="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5">
-          <a href={`/parishes/${parish.slug}/`} class="block">
-            <div class="relative overflow-hidden bg-muted">
-              <img
-                src={parish.image}
-                alt={parish.alt}
-                class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                width={getImageMeta(parish.image)?.width}
-                height={getImageMeta(parish.image)?.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent opacity-90"></div>
-              <span class="absolute bottom-3 left-3 rounded-md bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">{parish.location}</span>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {featured.map((parish) => (
+        <a href={`/parishes/${parish.slug}/`} class="card-lift group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+          <div class="relative overflow-hidden">
+            <div class="flex items-center gap-1.5 border-b border-border bg-secondary/50 px-3.5 py-2.5">
+              <span class="h-2 w-2 rounded-full bg-[#D56B5D]"></span>
+              <span class="h-2 w-2 rounded-full bg-accent"></span>
+              <span class="h-2 w-2 rounded-full bg-[#5E8E6E]"></span>
+              <span class="ml-1.5 truncate text-[11px] font-medium text-muted-foreground">{parish.domain}</span>
             </div>
-          </a>
-
-          <div class="p-5">
-            <h3 class="font-serif text-xl font-bold leading-tight">{parish.name}</h3>
-            <p class="mt-1 text-sm font-medium text-accent">{parish.domain}</p>
-            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{parish.summary}</p>
-
-            <div class="mt-5 flex flex-wrap gap-2">
-              {parish.highlights.map((highlight) => (
-                <span class="rounded-md bg-muted px-2.5 py-1 text-[11px] font-semibold text-foreground">{highlight}</span>
-              ))}
-            </div>
-
-            <a href={`/parishes/${parish.slug}/`} class="mt-5 inline-flex items-center text-sm font-semibold text-foreground transition-colors hover:text-accent">
-              Read Case Study
-              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
-              </svg>
-            </a>
+            <img
+              src={`/parishes/screenshots/${parish.slug}.webp`}
+              alt={`${parish.name} website homepage`}
+              class="aspect-[16/11] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+              width={getImageMeta(`/parishes/screenshots/${parish.slug}.webp`)?.width}
+              height={getImageMeta(`/parishes/screenshots/${parish.slug}.webp`)?.height}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-        </article>
+
+          <div class="flex flex-1 flex-col p-6">
+            <div class="flex items-center gap-2">
+              <span class="rounded-full bg-accent/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent">{parish.location}</span>
+            </div>
+            <h3 class="mt-3 font-serif text-xl font-bold leading-tight">{parish.name}</h3>
+            <p class="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground">{parish.summary}</p>
+            <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+              Read case study
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9" /></svg>
+            </span>
+          </div>
+        </a>
       ))}
     </div>
   </div>

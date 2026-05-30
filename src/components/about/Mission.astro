@@ -1,40 +1,40 @@
 ---
 // src/components/about/Mission.astro
+import Eyebrow from '../Eyebrow.astro';
+
+const capabilities = [
+  "Modern Design",
+  "Daily Content",
+  "Easy Administration",
+  "Reliable Hosting",
+  "Secure Donations",
+  "Livestream",
+  "Zero Technical Stress"
+];
 ---
 
-<section class="py-24">
+<section class="bg-secondary/40 py-20 md:py-28">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-serif font-bold mb-6">Our Mission</h2>
-      <p class="text-muted-foreground text-xl mb-12 leading-relaxed">To give every parish a modern, living website — so they can focus on ministry, not technology.</p>
-
-      <div class="bg-muted p-10 rounded-2xl border border-border max-w-2xl mx-auto">
-        <p class="italic text-muted-foreground leading-relaxed text-lg">"We believe that every parish, regardless of size or budget, deserves a professional online presence. Churchify exists to make that simple, affordable, and stress-free."</p>
-        <p class="mt-5 font-semibold text-foreground">— The Churchify Team</p>
-      </div>
+    <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
+      <Eyebrow>Our mission</Eyebrow>
+      <h2 class="mt-6 font-serif text-3xl font-bold md:text-4xl">Give every parish a modern, living website — so they can focus on ministry, not technology.</h2>
     </div>
-  </div>
-</section>
 
-<!-- What We Do -->
-<section class="py-24 bg-secondary/50">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-3xl font-serif font-bold mb-4">What We Do</h2>
-        <p class="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">Churchify does one thing exceptionally well.</p>
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-light to-primary p-8 text-primary-foreground shadow-card md:p-10">
+        <div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="relative h-8 w-8 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+        <p class="relative mt-5 font-serif text-xl font-bold leading-snug text-white">We believe every parish, regardless of size or budget, deserves a professional online presence. Churchify exists to make that simple, affordable and stress-free.</p>
+        <p class="relative mt-5 text-sm font-semibold text-accent">— The Churchify Team</p>
       </div>
 
-      <div class="bg-card rounded-2xl border border-border p-10 md:p-14 text-center">
-        <p class="text-2xl md:text-3xl font-serif font-bold leading-snug mb-6">We build and manage high-quality parish websites so parishes can focus on ministry, not technology.</p>
-        <div class="flex flex-wrap justify-center gap-3 mt-8">
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Modern Design</span>
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Daily Content</span>
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Easy Administration</span>
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Reliable Hosting</span>
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Secure Donations</span>
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Livestream</span>
-          <span class="text-xs bg-muted text-foreground px-4 py-2 rounded-full font-medium">Zero Technical Stress</span>
+      <div class="rounded-3xl border border-border bg-card p-8 shadow-card md:p-10">
+        <Eyebrow>What we do</Eyebrow>
+        <p class="mt-6 font-serif text-2xl font-bold leading-snug">We build and manage high-quality parish websites so parishes can focus on ministry, not technology.</p>
+        <div class="mt-7 flex flex-wrap gap-2.5">
+          {capabilities.map((item) => (
+            <span class="rounded-full bg-secondary px-3.5 py-1.5 text-xs font-semibold text-foreground">{item}</span>
+          ))}
         </div>
       </div>
     </div>

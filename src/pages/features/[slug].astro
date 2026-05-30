@@ -2,8 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
 import { getImageMeta } from '../../data/imageMeta';
 import { platformFeatures } from '../../data/features';
+import { showcaseParishes } from '../../data/parishes';
 
 type Feature = (typeof platformFeatures)[number];
 
@@ -16,138 +18,34 @@ export function getStaticPaths() {
 
 const { feature } = Astro.props as { feature: Feature };
 
-const featurePreviews: Record<Feature["visual"], {
-  image: string;
-  imageAlt: string;
-  eyebrow: string;
-  title: string;
-  summary: string;
-  rows: [string, string][];
-}> = {
-  performance: {
-    image: "/parishes/st-marys-altar.jpg",
-    imageAlt: "St. Mary's Drogheda altar used as a Churchify feature example",
-    eyebrow: "Design Preview",
-    title: "A fast site with obvious parish actions.",
-    summary: "The first screen gives parishioners clear routes to Mass times, notices, donations, livestream and contact details.",
-    rows: [
-      ["First impression", "Calm, credible and parish-specific"],
-      ["Mobile focus", "Large touch targets and clear page order"],
-      ["Technical base", "Optimised images, metadata and sitemap"]
-    ]
-  },
-  editor: {
-    image: "/parishes/bohermeen-church.webp",
-    imageAlt: "Bohermeen parish church exterior",
-    eyebrow: "Editor Preview",
-    title: "A publishing setup for weekly parish work.",
-    summary: "Common tasks such as uploading a bulletin or adding a notice are structured so the office can move quickly.",
-    rows: [
-      ["Bulletins", "Upload the PDF and publish it cleanly"],
-      ["Notices", "News, events and death notices stay organised"],
-      ["Training", "Practical handover for staff and volunteers"]
-    ]
-  },
-  managed: {
-    image: "/parishes/donore-church.webp",
-    imageAlt: "Nativity of Our Lady Church in Donore",
-    eyebrow: "Managed Care",
-    title: "The technical side is quietly handled.",
-    summary: "Hosting, updates, security and support sit inside the Churchify service rather than becoming another parish task.",
-    rows: [
-      ["Hosting", "SSL, DNS and managed hosting"],
-      ["Maintenance", "Updates, backups and security checks"],
-      ["Support", "Help with technical and content questions"]
-    ]
-  },
-  livestream: {
-    image: "/parishes/duleek-aerial.webp",
-    imageAlt: "Aerial view of Duleek parish church and grounds",
-    eyebrow: "Livestream Access",
-    title: "Live Mass is easy to find.",
-    summary: "Your existing provider is embedded with schedule context, fallback links and a clear place in the parish website.",
-    rows: [
-      ["Providers", "YouTube, Facebook, ChurchServices.tv and more"],
-      ["Schedule", "Visible service times beside the player"],
-      ["Fallback", "Clear provider links if an embed is unavailable"]
-    ]
-  },
-  donations: {
-    image: "/parishes/donore-church.webp",
-    imageAlt: "Nativity of Our Lady Church in Donore",
-    eyebrow: "Giving Flow",
-    title: "A secure donation journey through Stripe.",
-    summary: "Donation pages are designed to feel trustworthy, direct and easy to complete on a phone.",
-    rows: [
-      ["Stripe setup", "Account and donation flow guidance"],
-      ["Giving options", "One-off, recurring and fund-specific giving"],
-      ["Placement", "Donation links where people expect them"]
-    ]
-  },
-  liturgical: {
-    image: "/parishes/st-marys-altar.jpg",
-    imageAlt: "St. Mary's Drogheda altar used as a Churchify liturgical content example",
-    eyebrow: "Daily Content",
-    title: "A parish site with a daily rhythm.",
-    summary: "Liturgical content helps the website feel alive even when the office has not published a new notice.",
-    rows: [
-      ["Readings", "Daily readings and Gospel content"],
-      ["Feast day", "Season, colour, rank and saint profiles"],
-      ["Prayer", "Rosary mysteries and parish prayer resources"]
-    ]
-  },
-  notices: {
-    image: "/parishes/bohermeen-church.webp",
-    imageAlt: "Bohermeen parish church exterior",
-    eyebrow: "Parish Updates",
-    title: "Notices and bulletins without clutter.",
-    summary: "Updates are easy to publish and easy to browse, with clean archives for parishioners who need to look back.",
-    rows: [
-      ["Bulletins", "Weekly PDF uploads with archive"],
-      ["Notices", "General, death, baptism and marriage notices"],
-      ["News", "Parish posts organised by date and category"]
-    ]
-  },
-  mass: {
-    image: "/parishes/ballivor-church.jpg",
-    imageAlt: "Ballivor parish church exterior",
-    eyebrow: "Mass Schedule",
-    title: "Times, places and livestream labels.",
-    summary: "Mass information is treated as a primary parish feature, not a buried text block or old PDF.",
-    rows: [
-      ["Recurring times", "Weekend, weekday and Holy Day schedules"],
-      ["Locations", "Support for multiple churches"],
-      ["Context", "Confession, special services and livestream labels"]
-    ]
-  },
-  social: {
-    image: "/parishes/duleek-aerial.webp",
-    imageAlt: "Aerial view of Duleek parish church and grounds",
-    eyebrow: "Social Publishing",
-    title: "Share parish news beyond the website.",
-    summary: "Selected website updates can become prepared posts for the social channels your parish uses.",
-    rows: [
-      ["Channels", "Facebook, Instagram and Bluesky support"],
-      ["Approval", "Manual approval rules where needed"],
-      ["Source", "One reliable home for parish updates"]
-    ]
-  },
-  newsletter: {
-    image: "/parishes/oldcastle-church.avif",
-    imageAlt: "Oldcastle and Moylagh parish church exterior",
-    eyebrow: "Email Updates",
-    title: "A parish mailing list with consent.",
-    summary: "Parishioners can opt in to receive weekly bulletins or selected parish news by email.",
-    rows: [
-      ["Signup", "Parish-branded forms with clear consent"],
-      ["Sending", "Weekly bulletin or selected news emails"],
-      ["Compliance", "Consent records and unsubscribe links"]
-    ]
-  }
+// Each feature is illustrated with a real, live Churchify parish website.
+const exampleSlugByVisual: Record<Feature["visual"], string> = {
+  performance: "st-marys-drogheda-parish",
+  editor: "bohermeen-parish",
+  managed: "donore-rossnaree-parish",
+  livestream: "duleek-bellewstown-parish",
+  donations: "holy-family-drogheda-parish",
+  liturgical: "drumconrath-parish",
+  notices: "bohermeen-parish",
+  mass: "ballivor-kildalkey-parish",
+  social: "oldcastle-moylagh-parish",
+  newsletter: "oldcastle-moylagh-parish"
 };
 
-const preview = featurePreviews[feature.visual];
-const previewMeta = getImageMeta(preview.image);
+const example =
+  showcaseParishes.find((p) => p.slug === exampleSlugByVisual[feature.visual]) ?? showcaseParishes[0];
+const shot = `/parishes/screenshots/${example.slug}.webp`;
+const shotMeta = getImageMeta(shot);
+const shotAlt = `Homepage of ${example.name}, a live parish website built and managed by Churchify`;
+
+const carePoints: [string, string, string][] = [
+  ["M4 6a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 12h12M9 21h6", "Designed into the site", "We place the feature where parishioners naturally expect to find it, on desktop and mobile."],
+  ["M12 4.5v15m7.5-7.5h-15", "Prepared for your team", "The editing flow, labels and training are shaped around everyday parish-office work."],
+  ["M9 12l2 2 4-4m5.6-3A11.9 11.9 0 0112 2.9 11.9 11.9 0 013.4 6 12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.1-2-.4-3z", "Managed after launch", "Hosting, updates, backups and support are included so the feature keeps working."]
+];
+
+const relatedFeatures = platformFeatures.filter((f) => f.slug !== feature.slug).slice(0, 3);
+
 const pageDescription = `${feature.title} for Catholic parish websites by Churchify. ${feature.summary}`;
 const featureUrl = `https://churchify.ie/features/${feature.slug}/`;
 const featureSchema = {
@@ -163,19 +61,13 @@ const featureSchema = {
     url: "https://churchify.ie/"
   }
 };
-
-const carePoints = [
-  ["Designed into the site", "We place the feature where parishioners naturally expect to find it, on desktop and mobile."],
-  ["Prepared for your team", "The editing flow, labels and training are shaped around everyday parish-office work."],
-  ["Managed after launch", "Hosting, updates, backups and support are included so the feature keeps working."]
-];
 ---
 
 <Layout
   title={`${feature.title} | Churchify Parish Website Features`}
   description={pageDescription}
-  ogImage={preview.image}
-  ogImageAlt={preview.imageAlt}
+  ogImage={shot}
+  ogImageAlt={shotAlt}
   schema={featureSchema}
   breadcrumbs={[
     { name: "Home", url: "/" },
@@ -186,434 +78,188 @@ const carePoints = [
   <Header />
 
   <main>
-    <section class="border-b border-border bg-secondary/45">
-      <div class="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
-        <a href="/features/" class="inline-flex items-center text-sm font-semibold text-muted-foreground transition-colors hover:text-accent">
-          <svg xmlns="http://www.w3.org/2000/svg" class="mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 7L7 17M7 17H16M7 17V8" />
-          </svg>
-          Back to all features
-        </a>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -top-40 right-[-10%] h-[40rem] w-[40rem] rounded-full bg-accent/12 blur-3xl"></div>
+        <div class="absolute -bottom-44 left-[-12%] h-[36rem] w-[36rem] rounded-full bg-primary/8 blur-3xl"></div>
+      </div>
 
-        <div class="mt-10 grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+      <div class="mx-auto max-w-7xl px-6 pt-12 pb-16 md:pt-16 md:pb-24 lg:px-8">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Breadcrumb">
+          <a href="/features/" class="font-medium transition-colors hover:text-accent">Features</a>
+          <span class="text-border">/</span>
+          <span class="font-medium text-foreground">{feature.title}</span>
+        </nav>
+
+        <div class="mt-8 grid gap-12 lg:grid-cols-[1.05fr_1.1fr] lg:items-center lg:gap-16">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-widest text-accent">{feature.eyebrow}</p>
-            <h1 class="mt-4 max-w-3xl font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">{feature.title}</h1>
-            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">{feature.summary}</p>
+            <Eyebrow>{feature.eyebrow}</Eyebrow>
+            <h1 class="mt-6 max-w-2xl font-serif text-4xl font-bold leading-[1.05] text-foreground md:text-5xl lg:text-6xl">{feature.title}</h1>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{feature.summary}</p>
 
-            <div class="mt-7 flex flex-wrap gap-2">
+            <ul class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-sm font-medium text-muted-foreground">
               {feature.proof.map((proof) => (
-                <span class="rounded-md bg-card px-3 py-1.5 text-xs font-semibold text-foreground ring-1 ring-border">{proof}</span>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+                  {proof}
+                </li>
               ))}
-            </div>
+            </ul>
 
-            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="/contact/" class="inline-flex justify-center rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
-                Talk About This Feature
-              </a>
-              <a href="/features/" class="inline-flex justify-center rounded-lg border border-border bg-card px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-background">
-                View All Features
-              </a>
+            <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a href="/contact/" class="btn btn-primary">Talk about this feature</a>
+              <a href="/pricing/" class="btn btn-outline">See pricing</a>
             </div>
           </div>
 
-          <aside class="overflow-hidden rounded-lg border border-border bg-card shadow-xl shadow-primary/5">
-            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-background px-4 py-3">
-              <div class="flex items-center gap-2" aria-hidden="true">
+          <!-- Real, live parish website -->
+          <figure class="relative lg:justify-self-end">
+            <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+              <div class="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-3">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#D56B5D]"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-border"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-border"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#5E8E6E]"></span>
+                <span class="ml-2 text-[11px] font-medium tracking-wide text-muted-foreground">{example.domain}</span>
               </div>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">Parish site preview</span>
+              <img
+                src={shot}
+                alt={shotAlt}
+                class="aspect-[16/10] w-full object-cover object-top"
+                width={shotMeta?.width}
+                height={shotMeta?.height}
+                decoding="async"
+                fetchpriority="high"
+              />
             </div>
-
-            <div class="p-4 md:p-6">
-              <div class="mb-5 flex items-center justify-between gap-4">
-                <div class="flex min-w-0 items-center gap-3">
-                  <img
-                    src={preview.image}
-                    alt={preview.imageAlt}
-                    class="h-12 w-12 shrink-0 rounded-md object-cover"
-                    width={previewMeta?.width}
-                    height={previewMeta?.height}
-                    decoding="async"
-                    fetchpriority="high"
-                  />
-                  <div class="min-w-0">
-                    <p class="text-xs font-semibold uppercase tracking-widest text-accent">{preview.eyebrow}</p>
-                    <h2 class="mt-1 truncate font-serif text-xl font-bold text-foreground">{preview.title}</h2>
-                  </div>
-                </div>
-              </div>
-
-              {feature.visual === "performance" && (
-                <div class="overflow-hidden rounded-lg border border-border bg-background">
-                  <div class="relative min-h-[210px]">
-                    <img src={preview.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
-                    <div class="absolute inset-0 bg-primary/72"></div>
-                    <div class="relative grid min-h-[210px] content-between p-5 text-white">
-                      <div class="flex items-center justify-between gap-4">
-                        <p class="font-serif text-xl font-bold text-white">St Mary's Parish</p>
-                        <span class="rounded-md bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-white">Live site</span>
-                      </div>
-                      <div>
-                        <h3 class="max-w-sm font-serif text-3xl font-bold text-white">Mass, notices and parish life in one clear place.</h3>
-                        <div class="mt-5 flex flex-wrap gap-2">
-                          {["Mass Times", "Latest Bulletin", "Livestream"].map((item) => (
-                            <span class="rounded-md bg-white px-3 py-2 text-xs font-bold text-primary">{item}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="grid grid-cols-3 gap-px bg-border">
-                    {[
-                      ["98", "Speed"],
-                      ["100", "SEO"],
-                      ["Mobile", "Ready"]
-                    ].map(([value, label]) => (
-                      <div class="bg-card p-4 text-center">
-                        <p class="font-serif text-2xl font-bold text-foreground">{value}</p>
-                        <p class="mt-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "editor" && (
-                <div class="overflow-hidden rounded-lg border border-border bg-background">
-                  <div class="grid min-h-[330px] md:grid-cols-[0.36fr_0.64fr]">
-                    <div class="bg-primary p-4 text-primary-foreground">
-                      <p class="font-serif text-lg font-bold text-primary-foreground">Parish Admin</p>
-                      <div class="mt-5 grid gap-2">
-                        {["Notices", "Bulletins", "Mass Times", "Pages"].map((item, index) => (
-                          <span class={index === 1 ? "rounded-md bg-accent px-3 py-2 text-xs font-bold text-foreground" : "rounded-md bg-white/10 px-3 py-2 text-xs font-semibold text-primary-foreground/80"}>{item}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div class="p-4">
-                      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
-                        <div>
-                          <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Weekly Bulletin</p>
-                          <h3 class="mt-1 font-serif text-2xl font-bold">Sunday 12 May</h3>
-                        </div>
-                        <span class="rounded-md bg-primary px-3 py-2 text-xs font-bold text-primary-foreground">Publish</span>
-                      </div>
-                      <div class="mt-4 grid gap-3">
-                        <div class="rounded-md border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground">Bulletin title</div>
-                        <div class="grid gap-2 rounded-md border border-border bg-card p-3">
-                          <span class="h-2.5 rounded-full bg-muted"></span>
-                          <span class="h-2.5 w-5/6 rounded-full bg-muted"></span>
-                          <span class="h-2.5 w-2/3 rounded-full bg-muted"></span>
-                        </div>
-                        <div class="rounded-lg border border-dashed border-accent/70 bg-accent/5 p-5 text-center text-sm font-bold text-foreground">
-                          Upload bulletin PDF
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "managed" && (
-                <div class="rounded-lg border border-border bg-background p-4">
-                  <div class="flex flex-wrap items-start justify-between gap-4">
-                    <div>
-                      <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Care Dashboard</p>
-                      <h3 class="mt-1 font-serif text-2xl font-bold">Everything healthy today.</h3>
-                    </div>
-                    <span class="rounded-md bg-accent/10 px-3 py-2 text-xs font-bold text-accent">Monitored</span>
-                  </div>
-                  <div class="mt-5 grid gap-3">
-                    {[
-                      ["Hosting", "Online", "99.9% uptime"],
-                      ["Backups", "Complete", "Last checked today"],
-                      ["Security", "Protected", "Scan passed"],
-                      ["Updates", "Current", "No action needed"]
-                    ].map(([label, status, note]) => (
-                      <div class="grid gap-3 rounded-lg border border-border bg-card p-4 sm:grid-cols-[0.7fr_0.6fr_1fr] sm:items-center">
-                        <p class="font-serif text-lg font-bold">{label}</p>
-                        <span class="w-fit rounded-md bg-primary px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-primary-foreground">{status}</span>
-                        <p class="text-sm text-muted-foreground">{note}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "livestream" && (
-                <div class="grid gap-4 rounded-lg border border-border bg-background p-4 lg:grid-cols-[1.2fr_0.8fr]">
-                  <div class="flex aspect-video items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                    <span class="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-primary shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </span>
-                  </div>
-                  <div class="grid gap-3">
-                    <div>
-                      <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Live Now</p>
-                      <h3 class="mt-1 font-serif text-2xl font-bold">Daily Mass</h3>
-                    </div>
-                    {[
-                      ["Today", "10:00am"],
-                      ["Sunday", "11:30am"],
-                      ["Provider", "ChurchServices.tv"]
-                    ].map(([label, value]) => (
-                      <div class="rounded-md border border-border bg-card p-3">
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{label}</p>
-                        <p class="mt-1 font-semibold text-foreground">{value}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "donations" && (
-                <div class="grid gap-4 rounded-lg border border-border bg-background p-4 md:grid-cols-[0.9fr_1.1fr]">
-                  <div>
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Give Online</p>
-                    <h3 class="mt-1 font-serif text-2xl font-bold">Support your parish</h3>
-                    <div class="mt-5 grid grid-cols-3 gap-2">
-                      {["EUR 10", "EUR 25", "EUR 50"].map((amount, index) => (
-                        <span class={index === 1 ? "rounded-md bg-primary px-3 py-2 text-center text-xs font-bold text-primary-foreground" : "rounded-md border border-border bg-card px-3 py-2 text-center text-xs font-bold text-foreground"}>{amount}</span>
-                      ))}
-                    </div>
-                    <div class="mt-3 rounded-md border border-border bg-card p-3 text-sm font-semibold text-foreground">Monthly giving enabled</div>
-                  </div>
-                  <div class="rounded-lg border border-border bg-card p-4">
-                    <p class="text-sm font-bold text-foreground">Secure payment</p>
-                    <div class="mt-3 grid gap-2">
-                      <div class="rounded-md border border-border bg-background px-3 py-2 text-xs text-muted-foreground">Card number</div>
-                      <div class="grid grid-cols-2 gap-2">
-                        <div class="rounded-md border border-border bg-background px-3 py-2 text-xs text-muted-foreground">MM / YY</div>
-                        <div class="rounded-md border border-border bg-background px-3 py-2 text-xs text-muted-foreground">CVC</div>
-                      </div>
-                      <span class="mt-2 rounded-md bg-accent px-3 py-2 text-center text-xs font-bold text-foreground">Donate securely</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "liturgical" && (
-                <div class="grid gap-4 rounded-lg border border-border bg-background p-4 md:grid-cols-[1.1fr_0.9fr]">
-                  <article class="rounded-lg border border-border bg-card p-5">
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Today's Gospel</p>
-                    <h3 class="mt-2 font-serif text-2xl font-bold">Daily Mass Readings</h3>
-                    <div class="mt-4 grid gap-2">
-                      <span class="h-2.5 rounded-full bg-muted"></span>
-                      <span class="h-2.5 w-11/12 rounded-full bg-muted"></span>
-                      <span class="h-2.5 w-4/5 rounded-full bg-muted"></span>
-                    </div>
-                    <p class="mt-5 text-sm leading-relaxed text-muted-foreground">Readings, psalm and Gospel content refreshed for the day.</p>
-                  </article>
-                  <div class="grid gap-3">
-                    {["Feast of the Day", "Saint of the Day", "Rosary Mysteries"].map((item) => (
-                      <div class="rounded-lg border border-border bg-card p-4">
-                        <p class="font-serif text-lg font-bold">{item}</p>
-                        <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Automatically updated parish content.</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "notices" && (
-                <div class="grid gap-4 rounded-lg border border-border bg-background p-4 md:grid-cols-[0.9fr_1.1fr]">
-                  <div class="rounded-lg border border-border bg-card p-4">
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Weekly Bulletin</p>
-                    <h3 class="mt-2 font-serif text-2xl font-bold">This Sunday's bulletin</h3>
-                    <div class="mt-5 rounded-lg border border-dashed border-accent/70 bg-accent/5 p-6 text-center text-sm font-bold text-foreground">PDF ready to view</div>
-                    <span class="mt-4 inline-flex rounded-md bg-primary px-3 py-2 text-xs font-bold text-primary-foreground">Download bulletin</span>
-                  </div>
-                  <div class="grid gap-3">
-                    {[
-                      ["Parish notice", "Choir practice this Thursday"],
-                      ["Death notice", "Funeral arrangements published"],
-                      ["Event", "First Communion meeting"]
-                    ].map(([label, title]) => (
-                      <article class="rounded-lg border border-border bg-card p-4">
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-accent">{label}</p>
-                        <h4 class="mt-1 font-serif text-lg font-bold">{title}</h4>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "mass" && (
-                <div class="overflow-hidden rounded-lg border border-border bg-background">
-                  <div class="border-b border-border bg-card p-5">
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Mass Times</p>
-                    <h3 class="mt-1 font-serif text-2xl font-bold">This week in the parish</h3>
-                  </div>
-                  <div class="divide-y divide-border">
-                    {[
-                      ["Saturday", "6:30pm", "Vigil Mass", "Main Church"],
-                      ["Sunday", "10:00am", "Parish Mass", "St Mary's"],
-                      ["Sunday", "11:30am", "Livestream", "Online"],
-                      ["Holy Day", "7:30pm", "Special Mass", "Main Church"]
-                    ].map(([day, time, label, location]) => (
-                      <div class="grid gap-2 bg-card p-4 sm:grid-cols-[0.7fr_0.7fr_1fr_0.8fr] sm:items-center">
-                        <p class="text-sm font-bold text-foreground">{day}</p>
-                        <p class="font-serif text-xl font-bold text-foreground">{time}</p>
-                        <p class="text-sm font-semibold text-foreground">{label}</p>
-                        <p class="text-sm text-muted-foreground">{location}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "social" && (
-                <div class="grid gap-4 rounded-lg border border-border bg-background p-4 md:grid-cols-[1fr_0.72fr]">
-                  <article class="rounded-lg border border-border bg-card p-5">
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Website Post</p>
-                    <h3 class="mt-2 font-serif text-2xl font-bold">Parish newsletter published</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-muted-foreground">One website update becomes prepared social posts for approval.</p>
-                    <div class="mt-5 grid gap-2">
-                      <span class="h-2.5 rounded-full bg-muted"></span>
-                      <span class="h-2.5 w-4/5 rounded-full bg-muted"></span>
-                    </div>
-                  </article>
-                  <div class="grid gap-3">
-                    {[
-                      ["Facebook", "Ready"],
-                      ["Instagram", "Draft"],
-                      ["Bluesky", "Ready"]
-                    ].map(([channel, status]) => (
-                      <div class="rounded-lg border border-border bg-card p-4">
-                        <p class="font-serif text-lg font-bold">{channel}</p>
-                        <p class="mt-1 w-fit rounded-md bg-accent/10 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-accent">{status}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {feature.visual === "newsletter" && (
-                <div class="grid gap-4 rounded-lg border border-border bg-background p-4 md:grid-cols-[0.85fr_1.15fr]">
-                  <div class="rounded-lg border border-border bg-card p-4">
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Signup</p>
-                    <h3 class="mt-2 font-serif text-2xl font-bold">Receive parish updates</h3>
-                    <div class="mt-4 rounded-md border border-border bg-background px-3 py-2 text-sm text-muted-foreground">email@example.com</div>
-                    <div class="mt-3 flex gap-2 text-xs leading-relaxed text-muted-foreground">
-                      <span class="mt-0.5 h-4 w-4 shrink-0 rounded border border-border bg-background"></span>
-                      <span>I agree to receive parish emails.</span>
-                    </div>
-                    <span class="mt-4 inline-flex rounded-md bg-primary px-3 py-2 text-xs font-bold text-primary-foreground">Subscribe</span>
-                  </div>
-                  <article class="rounded-lg border border-border bg-card p-5">
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-accent">Email Preview</p>
-                    <h3 class="mt-2 font-serif text-2xl font-bold">This week's bulletin</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Parish-branded email with bulletin, notices and unsubscribe link.</p>
-                    <div class="mt-5 grid gap-2">
-                      <span class="h-2.5 rounded-full bg-muted"></span>
-                      <span class="h-2.5 w-5/6 rounded-full bg-muted"></span>
-                      <span class="h-2.5 w-2/3 rounded-full bg-muted"></span>
-                    </div>
-                  </article>
-                </div>
-              )}
-
-              <p class="mt-5 text-sm leading-relaxed text-muted-foreground">{preview.summary}</p>
-
-              <div class="mt-5 grid gap-3 sm:grid-cols-3">
-                {preview.rows.map(([label, value]) => (
-                  <div class="rounded-lg border border-border bg-background p-4">
-                    <p class="text-[11px] font-semibold uppercase tracking-widest text-accent">{label}</p>
-                    <p class="mt-2 text-sm font-semibold leading-relaxed text-foreground">{value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </aside>
+            <figcaption class="absolute -bottom-4 left-4 flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 shadow-lift">
+              <span class="h-2 w-2 rounded-full bg-[#5E8E6E]"></span>
+              <span class="text-xs font-medium text-foreground">Live site · {example.name}</span>
+              <a href={example.url} target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-accent-light" aria-label={`Visit ${example.name}`}>Visit ↗</a>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="py-16 md:py-20">
-      <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
-        <div>
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">Why It Matters</p>
-          <h2 class="font-serif text-3xl font-bold md:text-4xl">{feature.valueTitle}</h2>
+    <!-- Why it matters -->
+    <section class="bg-secondary/40 py-20 md:py-28">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <Eyebrow>Why it matters</Eyebrow>
+          <h2 class="mt-6 font-serif text-3xl font-bold md:text-4xl">{feature.valueTitle}</h2>
           <p class="mt-5 text-lg leading-relaxed text-muted-foreground">{feature.valueCopy}</p>
         </div>
 
-        <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
           {feature.outcomes.map((outcome, index) => (
-            <article class="rounded-lg border border-border bg-card p-5 shadow-sm">
-              <span class="font-serif text-2xl font-bold text-accent">{String(index + 1).padStart(2, "0")}</span>
-              <p class="mt-3 text-sm font-semibold leading-relaxed text-foreground">{outcome}</p>
-            </article>
+            <div class="rounded-2xl border border-border bg-card p-7 shadow-soft">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/12 font-serif text-lg font-bold text-accent">{String(index + 1).padStart(2, "0")}</span>
+              <p class="mt-5 leading-relaxed text-foreground">{outcome}</p>
+            </div>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="border-y border-border bg-card py-16 md:py-20">
-      <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.06fr_0.94fr] lg:gap-14 lg:px-8">
+    <!-- What it is + Included -->
+    <section class="py-20 md:py-28">
+      <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8">
         <div>
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">What It Is</p>
-          <h2 class="font-serif text-3xl font-bold md:text-4xl">{feature.detailTitle}</h2>
-          <p class="mt-5 text-lg leading-relaxed text-muted-foreground">{feature.whatItIs}</p>
-          <div class="mt-6 grid gap-4">
+          <Eyebrow>What it is</Eyebrow>
+          <h2 class="mt-6 font-serif text-3xl font-bold md:text-4xl">{feature.detailTitle}</h2>
+          <p class="mt-6 text-lg leading-relaxed text-muted-foreground">{feature.whatItIs}</p>
+          <div class="mt-6 space-y-4">
             {feature.details.map((paragraph) => (
               <p class="leading-relaxed text-muted-foreground">{paragraph}</p>
             ))}
           </div>
         </div>
 
-        <aside class="rounded-lg border border-border bg-background p-6 md:p-8">
-          <p class="text-xs font-semibold uppercase tracking-widest text-accent">Included Setup</p>
-          <h3 class="mt-3 font-serif text-2xl font-bold">What Churchify sets up for you.</h3>
-          <div class="mt-6 grid gap-3">
+        <div class="rounded-3xl border border-border bg-card p-8 shadow-card md:p-10">
+          <Eyebrow>Included setup</Eyebrow>
+          <h3 class="mt-6 font-serif text-2xl font-bold">What Churchify sets up for you</h3>
+          <ul class="mt-6 space-y-3">
             {feature.includes.map((item) => (
-              <div class="flex gap-3 rounded-lg border border-border bg-card p-4">
-                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
+              <li class="flex items-center gap-3.5">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-accent/12 text-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
                 </span>
-                <p class="text-sm font-semibold leading-relaxed text-foreground">{item}</p>
-              </div>
+                <span class="font-medium text-foreground">{item}</span>
+              </li>
             ))}
-          </div>
-        </aside>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="py-16 md:py-20">
+    <!-- Churchify approach -->
+    <section class="bg-secondary/40 py-20 md:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">Churchify Approach</p>
-          <h2 class="font-serif text-3xl font-bold md:text-4xl">Simple for parishioners, cared for behind the scenes.</h2>
+        <div class="max-w-3xl">
+          <Eyebrow>The Churchify way</Eyebrow>
+          <h2 class="mt-6 font-serif text-3xl font-bold md:text-4xl">Simple for parishioners, cared for behind the scenes.</h2>
         </div>
 
-        <div class="grid gap-5 md:grid-cols-3">
-          {carePoints.map(([title, copy]) => (
-            <article class="rounded-lg border border-border bg-card p-6 shadow-sm">
-              <h3 class="font-serif text-xl font-bold">{title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{copy}</p>
-            </article>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          {carePoints.map(([icon, title, copy]) => (
+            <div class="rounded-2xl border border-border bg-card p-7 shadow-soft">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/12 text-accent">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={icon} /></svg>
+              </div>
+              <h3 class="mt-5 font-serif text-xl font-bold">{title}</h3>
+              <p class="mt-3 leading-relaxed text-muted-foreground">{copy}</p>
+            </div>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="bg-primary py-14 md:py-16">
-      <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-6 md:flex-row md:items-center lg:px-8">
-        <div>
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">Next Step</p>
-          <h2 class="font-serif text-3xl font-bold text-primary-foreground md:text-4xl">Bring {feature.title} into your parish website.</h2>
-          <p class="mt-3 max-w-2xl text-sm leading-relaxed text-primary-foreground/75">
-            Churchify can design, build and manage this feature as part of a complete parish website package.
-          </p>
+    <!-- Continue exploring -->
+    <section class="py-20 md:py-28">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <Eyebrow>More of the platform</Eyebrow>
+            <h2 class="mt-6 font-serif text-3xl font-bold md:text-4xl">Explore the rest of Churchify.</h2>
+          </div>
+          <a href="/features/" class="btn btn-outline btn-sm shrink-0 self-start md:self-auto">View all features</a>
         </div>
-        <a href="/contact/" class="inline-flex shrink-0 justify-center rounded-lg bg-accent px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/90">
-          Talk to Churchify
-        </a>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedFeatures.map((related) => (
+            <a href={`/features/${related.slug}/`} class="card-lift group rounded-2xl border border-border bg-card p-7 shadow-soft">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={related.icon} /></svg>
+              </div>
+              <h3 class="mt-5 font-serif text-xl font-bold leading-snug">{related.title}</h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-muted-foreground">{related.description}</p>
+              <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                View feature
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9" /></svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-primary px-6 py-14 shadow-lift md:px-14 md:py-16">
+          <div class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-accent/20 blur-3xl"></div>
+          <div class="relative flex flex-col justify-between gap-8 md:flex-row md:items-center">
+            <div>
+              <Eyebrow tone="dark">Next step</Eyebrow>
+              <h2 class="mt-5 max-w-2xl font-serif text-3xl font-bold text-white md:text-4xl">Bring {feature.title} into your parish website.</h2>
+              <p class="mt-4 max-w-2xl leading-relaxed text-primary-foreground/70">
+                Churchify designs, builds and manages this as part of one complete parish website package.
+              </p>
+            </div>
+            <a href="/contact/" class="btn btn-accent btn-lg shrink-0">Talk to Churchify</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>

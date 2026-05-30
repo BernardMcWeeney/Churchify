@@ -1,0 +1,13 @@
+---
+// src/components/Eyebrow.astro — premium kicker pill (gold dot + letterspaced label)
+interface Props {
+  tone?: 'light' | 'dark';
+  class?: string;
+}
+
+const { tone = 'light', class: className = '' } = Astro.props;
+---
+
+<span class:list={['eyebrow', tone === 'dark' && 'on-dark', className]}>
+  <slot />
+</span>

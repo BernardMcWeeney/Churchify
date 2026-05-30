@@ -1,5 +1,11 @@
 ---
 // src/components/index/Features.astro
+import Eyebrow from '../Eyebrow.astro';
+import { getImageMeta } from '../../data/imageMeta';
+
+const shot = "/parishes/screenshots/donore-rossnaree-parish.webp";
+const shotMeta = getImageMeta(shot);
+
 const reasons = [
   {
     title: "Parishioners get what they need fast",
@@ -20,54 +26,58 @@ const reasons = [
 ];
 ---
 
-<section class="py-20 md:py-28">
+<section class="bg-secondary/40 py-20 md:py-28">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+    <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
 
-      <div>
-        <div class="overflow-hidden rounded-lg border border-border bg-card shadow-xl shadow-primary/5">
+      <div class="relative order-2 lg:order-1">
+        <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+          <div class="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-2.5">
+            <span class="h-2 w-2 rounded-full bg-[#D56B5D]"></span>
+            <span class="h-2 w-2 rounded-full bg-accent"></span>
+            <span class="h-2 w-2 rounded-full bg-[#5E8E6E]"></span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">donorerossnareeparish.com</span>
+          </div>
           <img
-            src="/parishes/st-marys-altar.jpg"
-            alt="St. Mary's Parish Drogheda altar used in a Churchify parish website"
-            class="aspect-[4/3] w-full object-cover"
-            width="1024"
-            height="573"
+            src={shot}
+            alt="A live Churchify parish website homepage"
+            class="aspect-[16/11] w-full object-cover object-top"
+            width={shotMeta?.width}
+            height={shotMeta?.height}
             loading="lazy"
             decoding="async"
           />
-          <div class="border-t border-border bg-card p-5">
-            <div class="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <p class="font-serif text-xl font-bold text-foreground">Daily</p>
-                <p class="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">Readings</p>
-              </div>
-              <div class="border-x border-border">
-                <p class="font-serif text-xl font-bold text-foreground">Live</p>
-                <p class="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">Mass</p>
-              </div>
-              <div>
-                <p class="font-serif text-xl font-bold text-foreground">Stripe</p>
-                <p class="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">Giving</p>
-              </div>
+        </div>
+        <div class="absolute -bottom-5 -right-3 hidden rounded-xl border border-border bg-card px-5 py-4 shadow-lift sm:block lg:-right-6">
+          <div class="grid grid-cols-3 gap-5 text-center">
+            <div>
+              <p class="font-serif text-lg font-bold text-foreground">Daily</p>
+              <p class="text-[10px] uppercase tracking-wider text-muted-foreground">Readings</p>
+            </div>
+            <div class="border-x border-border px-2">
+              <p class="font-serif text-lg font-bold text-foreground">Live</p>
+              <p class="text-[10px] uppercase tracking-wider text-muted-foreground">Mass</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg font-bold text-foreground">Stripe</p>
+              <p class="text-[10px] uppercase tracking-wider text-muted-foreground">Giving</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="pt-8 lg:pt-0">
-        <p class="text-xs uppercase tracking-widest text-accent mb-3 font-semibold">Why Churchify</p>
-        <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">A modern site your parish does not have to stress over.</h2>
-        <p class="text-muted-foreground text-lg mb-8 leading-relaxed">
-          We build around the weekly rhythm of parish life: Mass, prayer, notices, bulletins, giving and pastoral communication. Then we manage the technical side so the site stays reliable.
+      <div class="order-1 lg:order-2">
+        <Eyebrow>Why Churchify</Eyebrow>
+        <h2 class="mt-6 font-serif text-3xl font-bold md:text-5xl">A modern site your parish does not have to stress over.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
+          We build around the weekly rhythm of parish life — Mass, prayer, notices, bulletins, giving and pastoral communication — then manage the technical side so the site stays reliable.
         </p>
 
-        <div class="space-y-4">
+        <div class="mt-8 space-y-3">
           {reasons.map((reason) => (
-            <div class="flex gap-4 rounded-lg border border-border bg-card p-5">
-              <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+            <div class="flex gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/12 text-accent">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
               </div>
               <div>
                 <h3 class="font-serif text-lg font-bold">{reason.title}</h3>

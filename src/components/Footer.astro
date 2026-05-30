@@ -3,76 +3,71 @@
 import LogoMark from './LogoMark.astro';
 ---
 
-<footer class="bg-primary text-primary-foreground pt-16 pb-8">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<footer class="relative overflow-hidden bg-gradient-to-b from-primary to-[#15223c] pt-16 pb-8 text-primary-foreground">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+  <div class="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-accent/8 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
       <!-- Brand -->
       <div>
-        <a href="/" class="text-xl font-serif font-bold text-primary-foreground flex items-center mb-4 tracking-tight">
-          <LogoMark class="h-6 w-6 mr-2 text-accent" />
+        <a href="/" class="mb-4 flex items-center font-serif text-xl font-bold tracking-tight text-primary-foreground">
+          <LogoMark class="mr-2 h-6 w-6 text-accent" />
           Churchify
         </a>
-        <p class="text-primary-foreground/50 mb-6 text-sm leading-relaxed">The modern parish website platform. Beautiful, practical websites for Catholic parishes across Ireland.</p>
+        <p class="mb-6 text-sm leading-relaxed text-primary-foreground/55">The modern parish website platform. Beautiful, practical websites for Catholic parishes across Ireland.</p>
+        <a href="/contact/" class="btn btn-accent btn-sm">Start your parish site</a>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-accent font-serif font-semibold mb-4 text-sm uppercase tracking-wider">Navigate</h4>
+        <h4 class="mb-4 text-xs font-semibold uppercase tracking-wider text-accent">Navigate</h4>
         <ul class="space-y-3">
-          <li><a href="/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Home</a></li>
-          <li><a href="/about/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">About</a></li>
-          <li><a href="/features/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Features</a></li>
-          <li><a href="/parishes/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Parishes</a></li>
-          <li><a href="/pricing/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Pricing</a></li>
-          <li><a href="/contact/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Contact</a></li>
+          <li><a href="/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Home</a></li>
+          <li><a href="/about/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">About</a></li>
+          <li><a href="/features/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Features</a></li>
+          <li><a href="/parishes/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Showcase</a></li>
+          <li><a href="/pricing/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Pricing</a></li>
+          <li><a href="/contact/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Contact</a></li>
         </ul>
       </div>
 
-      <!-- What's Included -->
+      <!-- Platform -->
       <div>
-        <h4 class="text-accent font-serif font-semibold mb-4 text-sm uppercase tracking-wider">Platform</h4>
+        <h4 class="mb-4 text-xs font-semibold uppercase tracking-wider text-accent">Platform</h4>
         <ul class="space-y-3">
-          <li><a href="/features/daily-liturgical-content/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Living Liturgical Content</a></li>
-          <li><a href="/features/mass-times/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Mass Times Management</a></li>
-          <li><a href="/features/notices-and-bulletin/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Parish Notices & Bulletin</a></li>
-          <li><a href="/features/fast-beautiful-design/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Fast, Beautiful Design</a></li>
-          <li><a href="/features/online-donations/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Online Donations</a></li>
-          <li><a href="/features/livestream-integration/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Livestream Integration</a></li>
-          <li><a href="/features/social-media-integration/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Social Media Automation</a></li>
-          <li><a href="/features/email-newsletter/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Email Newsletter</a></li>
-          <li><a href="/features/fully-managed-support/" class="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm">Fully Managed Service</a></li>
+          <li><a href="/features/daily-liturgical-content/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Daily Liturgical Content</a></li>
+          <li><a href="/features/mass-times/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Mass Times Management</a></li>
+          <li><a href="/features/notices-and-bulletin/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Parish Notices & Bulletin</a></li>
+          <li><a href="/features/fast-beautiful-design/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Fast, Beautiful Design</a></li>
+          <li><a href="/features/online-donations/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Online Donations</a></li>
+          <li><a href="/features/livestream-integration/" class="text-sm text-primary-foreground/55 transition-colors hover:text-primary-foreground">Livestream Integration</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h4 class="text-accent font-serif font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
-        <address class="not-italic space-y-3">
-          <p class="flex items-start text-primary-foreground/50 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 mt-0.5 text-primary-foreground/30 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+        <h4 class="mb-4 text-xs font-semibold uppercase tracking-wider text-accent">Contact</h4>
+        <address class="space-y-3 not-italic">
+          <p class="flex items-start text-sm text-primary-foreground/55">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-accent/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             info@churchify.ie
           </p>
-          <p class="flex items-start text-primary-foreground/50 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 mt-0.5 text-primary-foreground/30 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+          <p class="flex items-start text-sm text-primary-foreground/55">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-accent/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             County Meath, Ireland
           </p>
-          <p class="flex items-start text-primary-foreground/50 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 mt-0.5 text-primary-foreground/30 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+          <p class="flex items-start text-sm text-primary-foreground/55">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-accent/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             Mon - Fri: 9am - 5pm
           </p>
         </address>
       </div>
     </div>
 
-    <div class="border-t border-white/10 pt-6 text-center text-primary-foreground/30 text-xs">
+    <div class="flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-primary-foreground/40 sm:flex-row">
       <p>&copy; {new Date().getFullYear()} Churchify. All rights reserved.</p>
+      <p>Managed Catholic parish websites · Ireland</p>
     </div>
   </div>
 </footer>
