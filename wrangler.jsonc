@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "churchify",
+  "compatibility_date": "2025-10-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true,
+  // Non-secret config. Secrets (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY,
+  // TURNSTILE_SECRET_KEY) are NOT stored here — set them with
+  // `wrangler secret put <NAME>` or in the Cloudflare dashboard.
+  "vars": {
+    "AWS_REGION": "eu-west-1",
+    "FROM_EMAIL_ADDRESS": "noreply@greenberry.ie",
+    "TO_EMAIL_ADDRESS": "office@greenberry.ie"
+  }
+}
